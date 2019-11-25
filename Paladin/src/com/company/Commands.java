@@ -37,7 +37,19 @@ public class Commands {
      */
     static void create()       //command to create a new character
     {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Name");
+        String name=sc.nextLine();
+        System.out.println("HP");
+        int hp=sc.nextInt();
+        System.out.println("power");
+        int power=sc.nextInt();
+        System.out.println("initiative");
+        int initiative=sc.nextInt();
 
+        Characters newFighter = new Characters(name, hp, power, initiative);
+
+        Characters.toString(name, hp, power, initiative);
     }
 
     static void delete()       //command to delete a character (using is Id)

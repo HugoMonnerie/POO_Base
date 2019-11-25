@@ -27,6 +27,9 @@ public class Main {
             else if (action.equals("help")){
                 Commands.help();
             }
+            else if (action.equals("create")){
+                Commands.create();
+            }
             else{
                 System.out.println("this command doesn't exit, these commands are available:");
                 Commands.help();

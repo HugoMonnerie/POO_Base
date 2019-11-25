@@ -57,8 +57,14 @@ public class Characters {
         this.initiative=initiative;
     }
 
-    public void toString(String nameChar, int hpChar, int powerChar, int initiativeChar){
-        System.out.println(nameChar + hpChar + powerChar + initiativeChar);
+    public static void toString(String nameChar, int hpChar, int powerChar, int initiativeChar){
+
+        System.out.println("Name Character = "+nameChar + "\nHP Character = "+hpChar + "\nPower Character = "+powerChar + "\nInitiative Character = c"+initiativeChar);
     }
+
+    public static ListCharacter() {
+        
+    }
+
 
 }
