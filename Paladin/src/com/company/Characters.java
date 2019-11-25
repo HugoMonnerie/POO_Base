@@ -42,19 +42,10 @@ public class Characters {
      * calcul of damages inflict by the character
      * @return these damages value
      */
-    public int attacking(){
-        int damageDone = this.power;
-        return damageDone;
+    public int hurt(int damageDone){
+        return this.hp -= damageDone ;
     }
 
-    /**
-     * calcul of damages inflict to the character
-     * @return these damages value
-     */
-    public int defending(){
-        int damageReceived = this.power;
-        return damageReceived;
-    }
 
     /**
      * constructor of Characters
@@ -64,8 +55,10 @@ public class Characters {
         this.hp=hp;
         this.power=power;
         this.initiative=initiative;
-
     }
 
+    public void toString(String nameChar, int hpChar, int powerChar, int initiativeChar){
+        System.out.println(nameChar + hpChar + powerChar + initiativeChar);
+    }
 
 }

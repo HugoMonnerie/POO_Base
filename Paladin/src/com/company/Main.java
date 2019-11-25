@@ -10,7 +10,6 @@ public class Main {
         String action;
 
         System.out.println("Application has started");          //story #1
-
         Scanner sc = new Scanner(System.in);
 
         /**

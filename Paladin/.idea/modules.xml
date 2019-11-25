@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/FightSimulator.iml" filepath="$PROJECT_DIR$/FightSimulator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Paladin.iml" filepath="$PROJECT_DIR$/Paladin.iml" />
     </modules>
   </component>
 </project>
