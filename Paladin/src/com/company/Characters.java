@@ -1,5 +1,7 @@
 package com.company;
 
+import java.util.ArrayList;
+
 public class Characters {
     private String name;
     private int hp;
@@ -40,7 +42,7 @@ public class Characters {
 
     /**
      * calcul of damages inflict by the character
-     * @return these damages value
+     * @return hp remaining after applying damage value
      */
     public int hurt(int damageDone){
         return this.hp -= damageDone ;
@@ -48,17 +50,29 @@ public class Characters {
 
 
     /**
-     * constructor of Characters
+     * constructor of character
+     * @param name          character's name
+     * @param hp            character's hp
+     * @param power         character's power
+     * @param initiative    character's initiative
      */
-    public Characters(String name, int power, int hp, int initiative){
+    public Characters(String name,  int hp, int power, int initiative){
         this.name=name;
         this.hp=hp;
         this.power=power;
         this.initiative=initiative;
     }
 
-    public void toString(String nameChar, int hpChar, int powerChar, int initiativeChar){
-        System.out.println(nameChar + hpChar + powerChar + initiativeChar);
+    /**
+     * display character's information
+     * @param nameChar              character's name
+     * @param hpChar                character's hp
+     * @param powerChar             character's power
+     * @param initiativeChar        character's initiative
+     */
+    public static String toString(String nameChar, int hpChar, int powerChar, int initiativeChar){
+        String result = "name: " + nameChar + " |  hp: " + hpChar + " |  power: " + powerChar + "initiative" + initiativeChar;
+        return result;
     }
 
 }
