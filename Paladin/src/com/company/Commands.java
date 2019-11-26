@@ -44,7 +44,7 @@ public class Commands {
      * @param hisPower      the power choose by the user
      * @param hisInitiative initiative choose by the user
      */
-    static List create(List listCharacters)
+    static void create(List listCharacters)
     {
         Scanner sc = new Scanner(System.in);
 
@@ -60,8 +60,6 @@ public class Commands {
 
         Characters newFighter = new Characters(hisName, hisHp, hisPower, hisInitiative);
         listCharacters.add(newFighter);
-
-        return listCharacters;
     }
 
     /**
@@ -85,17 +83,23 @@ public class Commands {
         for (int i=0; i<listCharacters.size(); i++)
         {
             Characters C = (Characters) listCharacters.get(i);
-            System.out.println(Characters.toString(C.getName(), C.getHp(), C.getPower(), C.getInitiative()));
+            System.out.println("id: " + i + " |   name: " + C.getName());
+        }
+
+        if (listCharacters.size()==0){
+            System.out.println("any character created");
         }
 
     }
 
     /**
-     *
+     * delete a character by his id
+     * @param listCharacters        characters list
+     * @param id                    character's
      */
-    static void delete()       //command to delete a character (using is Id)
+    static void delete(List listCharacters, int id)
     {
-
+        listCharacters.remove(id);
     }
 
 }

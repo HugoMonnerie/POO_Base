@@ -71,7 +71,7 @@ public class Characters {
      * @param initiativeChar        character's initiative
      */
     public static String toString(String nameChar, int hpChar, int powerChar, int initiativeChar){
-        String result = "name: " + nameChar + " |  hp: " + hpChar + " |  power: " + powerChar + "initiative" + initiativeChar;
+        String result = "name: " + nameChar + " |  hp: " + hpChar + " |  power: " + powerChar + " |  initiative: " + initiativeChar;
         return result;
     }
 

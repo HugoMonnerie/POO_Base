@@ -39,9 +39,17 @@ public class Main {
                 System.out.println("enter character's id:");
                 id =sc.nextInt();
                 Commands.stat(listCharacters, id);
+                action=sc.nextLine();
             }
             else if (action.equals("giveAll")) {
                 Commands.giveAll(listCharacters);
+            }
+            else if (action.equals("delete"))
+            {
+                System.out.println("enter character's id you want to delete:");
+                id =sc.nextInt();
+                Commands.delete(listCharacters, id);
+                action=sc.nextLine();
             }
             else{
                 System.out.println("this command doesn't exit, these commands are available:");
