@@ -1,5 +1,7 @@
 package com.company;
 
+import java.util.ArrayList;
+
 public class Characters {
     private String name;
     private int hp;
@@ -40,31 +42,43 @@ public class Characters {
 
     /**
      * calcul of damages inflict by the character
-     * @return these damages value
+     * @return hp remaining after applying damage value
      */
     public int hurt(int damageDone){
-        return this.hp -= damageDone ;
+        return this.hp = this.hp-damageDone ;
     }
 
+    public void fight(){
+
+    }
 
     /**
-     * constructor of Characters
+     * constructor of character
+     * @param name          character's name
+     * @param hp            character's hp
+     * @param power         character's power
+     * @param initiative    character's initiative
      */
-    public Characters(String name, int power, int hp, int initiative){
+    public Characters(String name, int hp, int power, int initiative){
         this.name=name;
         this.hp=hp;
         this.power=power;
         this.initiative=initiative;
+
+        Characters C1 = new Characters("C1", 100, 10, 5);
+        Characters C2 = new Characters("C2", 100, 6, 7);
     }
 
-    public static void toString(String nameChar, int hpChar, int powerChar, int initiativeChar){
+    /**
+     * display character's information
+     * @param nameChar              character's name
+     * @param hpChar                character's hp
+     * @param powerChar             character's power
+     * @param initiativeChar        character's initiative
+     */
+    public static String toString(String nameChar, int hpChar, int powerChar, int initiativeChar){
 
-        System.out.println("Name Character = "+nameChar + "\nHP Character = "+hpChar + "\nPower Character = "+powerChar + "\nInitiative Character = c"+initiativeChar);
+        return "name: " + nameChar + " |  hp: " + hpChar + " |  power: " + powerChar + " |  initiative: " + initiativeChar;
     }
-
-    public static ListCharacter() {
-        
-    }
-
 
 }
