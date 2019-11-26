@@ -8,6 +8,7 @@ public class Characters {
     private int power;
     private int initiative;
 
+
     /**
      * get the name of the character
      * @return character's name
@@ -15,6 +16,7 @@ public class Characters {
     public String getName(){
         return this.name;
     }
+
 
     /**
      * get the hearth points of the character
@@ -24,6 +26,7 @@ public class Characters {
         return this.hp;
     }
 
+
     /**
      * get the power of the character
      * @return character's power
@@ -31,6 +34,7 @@ public class Characters {
     public int getPower(){
         return this.power;
     }
+
 
     /**
      * get the initiative of the character
@@ -40,12 +44,21 @@ public class Characters {
         return this.initiative;
     }
 
+
     /**
-     * calcul of damages inflict by the character
-     * @return hp remaining after applying damage value
+     * calculate hp remaining after receiving damage
      */
-    public int hurt(int damageDone){
-        return this.hp -= damageDone ;
+    public void hurt(int damageDone){
+        this.hp=this.hp-damageDone;
+    }
+
+
+    /**
+     * give the hp wanted by the user to the wounded character
+     * @param hpMax     character's max hp
+     */
+    public void heal(int hpMax){
+        this.hp=hpMax;
     }
 
 
@@ -63,16 +76,39 @@ public class Characters {
         this.initiative=initiative;
     }
 
+
+    public Characters(){
+        this("hugo", 30, 5, 8);
+    }
+
     /**
-     * display character's information
-     * @param nameChar              character's name
-     * @param hpChar                character's hp
-     * @param powerChar             character's power
-     * @param initiativeChar        character's initiative
+     * display character's stats
+     * @return  String containing his stats
      */
-    public static String toString(String nameChar, int hpChar, int powerChar, int initiativeChar){
-        String result = "name: " + nameChar + " |  hp: " + hpChar + " |  power: " + powerChar + " |  initiative: " + initiativeChar;
-        return result;
+    public String toString(){
+        return "name: " + this.name + " |  hp: " + this.hp + " |  power: " + this.power + " |  initiative: " + this.initiative + "\n";
+    }
+
+
+    /**
+     * display the fight conduct
+     * @param C1    character who inflict damage
+     * @param C2    character who received damage
+     * @return      String containing the conduct
+     */
+    public String displayFight(Characters C1, Characters C2){
+        return C1.getName() + " inflict " + C1.getPower() + " damage to " +C2.getName() + ". he have "  + C2.getHp() + " hp remaining";
+    }
+
+
+
+    public boolean isDead(Characters C1, Characters C2, boolean isAlive){
+        if (C1.getHp()<=0)
+        {
+            System.out.println(C1.getName() + " is down\n" + C2.getName() + " is victorious\n");
+            return isAlive==false;
+        }
+        return isAlive==true;
     }
 
 }

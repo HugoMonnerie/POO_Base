@@ -10,6 +10,8 @@ public class Main {
         String action;
         List<Characters> listCharacters = new ArrayList<>();
         int id;
+        int id1;
+        int id2;
 
 
         System.out.println("Application has started");          //story #1
@@ -26,29 +28,41 @@ public class Main {
             System.out.println("what do you want to do now?\n(help to have the commands list)");
             action=sc.nextLine();
 
-            if (action.equals("exit")){
+            if (action.equals("exit") || action.equals("0")){
                 isExit = Commands.exit();
             }
-            else if (action.equals("help")){
+            else if (action.equals("help") || action.equals("1")){
                 Commands.help();
             }
-            else if (action.equals("create")){
-                Commands.create(listCharacters);
+            else if (action.equals("create") || action.equals("2")){
+                Commands.addToList(Commands.create(), listCharacters);
             }
-            else if (action.equals("stat")){
+            else if (action.equals("createWarior") || action.equals("3"))
+            {
+                Commands.addToList(Commands.createWarrior(), listCharacters);
+            }
+            else if (action.equals("stat") || action.equals("4")){
                 System.out.println("enter character's id:");
                 id =sc.nextInt();
                 Commands.stat(listCharacters, id);
                 action=sc.nextLine();
             }
-            else if (action.equals("giveAll")) {
+            else if (action.equals("giveAll") || action.equals("5")) {
                 Commands.giveAll(listCharacters);
             }
-            else if (action.equals("delete"))
+            else if (action.equals("delete") || action.equals("6"))
             {
                 System.out.println("enter character's id you want to delete:");
                 id =sc.nextInt();
                 Commands.delete(listCharacters, id);
+                action=sc.nextLine();
+            }
+            else if(action.equals("fight") || action.equals("7"))
+            {
+                System.out.println("enter fighter's id ");
+                id1 =sc.nextInt();
+                id2 =sc.nextInt();
+                Commands.fight(listCharacters, id1, id2);
                 action=sc.nextLine();
             }
             else{
