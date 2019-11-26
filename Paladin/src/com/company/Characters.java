@@ -88,7 +88,7 @@ public class Characters {
      * @return  String containing his stats
      */
     public String toString(){
-        return "name: " + this.name + " |  hp: " + this.hp + " |  power: " + this.power + " |  initiative: " + this.initiative + "\n";
+        return "name: " + this.name + " |  hp: " + this.hp + " |  power: " + this.power + " |  initiative: " + this.initiative ;
     }
 
 
@@ -103,6 +103,13 @@ public class Characters {
     }
 
 
+
+    public int calculateDamage(int damageDone){
+        return damageDone;
+    }
+
+
+
     public int totalDamage(int tour){
        return this.getPower();
     }
@@ -115,6 +122,11 @@ public class Characters {
             return isAlive==false;
         }
         return isAlive==true;
+    }
+
+
+    public String displayClass(){
+        return "";
     }
 
 }

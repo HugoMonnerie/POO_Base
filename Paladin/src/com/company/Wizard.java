@@ -23,10 +23,15 @@ public class Wizard extends Characters{
     }
 
 
-
-
     public String displayFight(Characters C1, Characters C2, int tour){
-        return C1.getName() + " inflict " + C1.totalDamage(tour) + " damage to " +C2.getName() + ". he have "  + C2.getHp() + " hp remaining";
+        return C1.getName() + " inflict " + C1.calculateDamage(C1.totalDamage(tour)) + " damage to " +C2.getName() + ". he have "  + C2.getHp() + " hp remaining";
 
     }
+
+
+
+    public String displayClass(){
+        return " the " + this.getClass().getSimpleName();
+    }
+
 }

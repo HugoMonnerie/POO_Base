@@ -25,7 +25,7 @@ public class Main {
          * @param listCharacters    usable characters list
          */
         do {
-            System.out.println("what do you want to do now?\n(help to have the commands list)");
+            System.out.println("\nwhat do you want to do now?\n(help to have the commands list)");
             action=sc.nextLine();
 
             if (action.equals("exit") || action.equals("0")){
@@ -37,7 +37,7 @@ public class Main {
             else if (action.equals("create") || action.equals("2")){
                 Commands.addToList(Commands.create(), listCharacters);
             }
-            else if (action.equals("createWarior") || action.equals("3"))
+            else if (action.equals("createWarrior") || action.equals("3"))
             {
                 Commands.addToList(Commands.createWarrior(), listCharacters);
             }
@@ -45,23 +45,40 @@ public class Main {
             {
                 Commands.addToList(Commands.createWizard(), listCharacters);
             }
-            else if (action.equals("stat") || action.equals("5")){
+            else if (action.equals("createRogue") || action.equals("5"))
+            {
+                Commands.addToList(Commands.createRogue(), listCharacters);
+            }
+            else if (action.equals("stat") || action.equals("6")){
                 System.out.println("enter character's id:");
                 id =sc.nextInt();
                 Commands.stat(listCharacters, id);
                 action=sc.nextLine();
             }
-            else if (action.equals("giveAll") || action.equals("6")) {
+            else if (action.equals("giveAll") || action.equals("7")) {
                 Commands.giveAll(listCharacters);
             }
-            else if (action.equals("delete") || action.equals("7"))
+            else if (action.equals("delete") || action.equals("8"))
             {
-                System.out.println("enter character's id you want to delete:");
-                id =sc.nextInt();
-                Commands.delete(listCharacters, id);
-                action=sc.nextLine();
+                if (!listCharacters.isEmpty()) {
+
+                    System.out.println("enter character's id you want to delete:");
+                    id = sc.nextInt();
+                    if (listCharacters.size()>id-1) {
+                        Commands.delete(listCharacters, id);
+
+                    }
+                    else{
+                        System.out.println("there nobody with this id");
+                    }
+                    action=sc.nextLine();
+                }
+                else
+                {
+                    System.out.println("there is nobody to fire");
+                }
             }
-            else if(action.equals("fight") || action.equals("8"))
+            else if(action.equals("fight") || action.equals("9"))
             {
                 System.out.println("enter fighter's id ");
                 id1 =sc.nextInt();

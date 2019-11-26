@@ -74,4 +74,10 @@ public class Warrior extends Characters {
     }
 
 
+
+    public String displayClass(){
+        return "the" + this.getClass().getSimpleName();
+    }
+
+
 }
