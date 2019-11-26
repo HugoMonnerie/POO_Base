@@ -41,23 +41,27 @@ public class Main {
             {
                 Commands.addToList(Commands.createWarrior(), listCharacters);
             }
-            else if (action.equals("stat") || action.equals("4")){
+            else if (action.equals("createWizard") || action.equals("4"))
+            {
+                Commands.addToList(Commands.createWizard(), listCharacters);
+            }
+            else if (action.equals("stat") || action.equals("5")){
                 System.out.println("enter character's id:");
                 id =sc.nextInt();
                 Commands.stat(listCharacters, id);
                 action=sc.nextLine();
             }
-            else if (action.equals("giveAll") || action.equals("5")) {
+            else if (action.equals("giveAll") || action.equals("6")) {
                 Commands.giveAll(listCharacters);
             }
-            else if (action.equals("delete") || action.equals("6"))
+            else if (action.equals("delete") || action.equals("7"))
             {
                 System.out.println("enter character's id you want to delete:");
                 id =sc.nextInt();
                 Commands.delete(listCharacters, id);
                 action=sc.nextLine();
             }
-            else if(action.equals("fight") || action.equals("7"))
+            else if(action.equals("fight") || action.equals("8"))
             {
                 System.out.println("enter fighter's id ");
                 id1 =sc.nextInt();

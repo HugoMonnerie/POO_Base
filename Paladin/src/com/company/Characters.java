@@ -5,6 +5,7 @@ import java.util.ArrayList;
 public class Characters {
     private String name;
     private int hp;
+    private int maxHp;
     private int power;
     private int initiative;
 
@@ -57,8 +58,8 @@ public class Characters {
      * give the hp wanted by the user to the wounded character
      * @param hpMax     character's max hp
      */
-    public void heal(int hpMax){
-        this.hp=hpMax;
+    public void heal(){
+        this.hp=this.maxHp;
     }
 
 
@@ -72,6 +73,7 @@ public class Characters {
     public Characters(String name,  int hp, int power, int initiative){
         this.name=name;
         this.hp=hp;
+        this.maxHp=hp;
         this.power=power;
         this.initiative=initiative;
     }
@@ -96,10 +98,14 @@ public class Characters {
      * @param C2    character who received damage
      * @return      String containing the conduct
      */
-    public String displayFight(Characters C1, Characters C2){
-        return C1.getName() + " inflict " + C1.getPower() + " damage to " +C2.getName() + ". he have "  + C2.getHp() + " hp remaining";
+    public String displayFight(Characters C1, Characters C2, int tour){
+        return C1.getName() + " inflict " + C1.totalDamage(tour) + " damage to " + C2.getName() + ". he have "  + C2.getHp() + " hp remaining";
     }
 
+
+    public int totalDamage(int tour){
+       return this.getPower();
+    }
 
 
     public boolean isDead(Characters C1, Characters C2, boolean isAlive){

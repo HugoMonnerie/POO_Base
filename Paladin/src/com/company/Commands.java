@@ -16,7 +16,8 @@ public class Commands {
         listCommand.add("exit");
         listCommand.add("help");
         listCommand.add("create");
-        listCommand.add("createWarior");
+        listCommand.add("createWarrior");
+        listCommand.add("createWizard");
         listCommand.add("stat");
         listCommand.add("giveAll");
         listCommand.add("delete");
@@ -86,6 +87,20 @@ public class Commands {
 
 
     /**
+     * create a Wizard character
+     * @return newFighter
+     */
+    static Characters createWizard(){
+        Characters C =create();
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("what is the intelligence of this character");
+        int hisIntelligence = sc.nextInt();
+        Characters newFighter = new Wizard(C.getName(), C.getHp(), C.getPower(), C.getInitiative(), hisIntelligence);
+        return newFighter;
+    }
+
+    /**
      * add a character into the characters list
      * @param newFighter        the character created
      * @param listCharacters    characters list
@@ -137,8 +152,7 @@ public class Commands {
         int i=0;
         Characters C1 = (Characters) listCharacters.get(id1);
         Characters C2 = (Characters) listCharacters.get(id2);
-        int hpMax1=C1.getHp();
-        int hpMax2=C2.getHp();
+
         boolean isAlive=true;
 
         if (C2.getInitiative()>C1.getInitiative()){     // first hit by C1
@@ -153,23 +167,21 @@ public class Commands {
             i++;
             System.out.print("\n -- tour " + i + " --\n");
 
-            C2.hurt(C1.getPower());
-            System.out.println(C2.displayFight(C1, C2));
+            C2.hurt(C1.totalDamage(i));
+            System.out.println(C2.displayFight(C1, C2, i));
             isAlive=C2.isDead(C2, C1, isAlive);
 
             if (!isAlive){
                 break;
             }
 
-            C1.hurt(C2.getPower());
-            System.out.println(C1.displayFight(C2, C1));
+            C1.hurt(C2.totalDamage(i));
+            System.out.println(C1.displayFight(C2, C1, i));
             isAlive=C1.isDead(C1, C2, isAlive);
 
-
-
         }
-        C1.heal(hpMax1);
-        C2.heal(hpMax2);
+        C1.heal();
+        C2.heal();
 
     }
 

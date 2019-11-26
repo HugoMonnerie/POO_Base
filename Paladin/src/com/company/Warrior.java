@@ -68,9 +68,9 @@ public class Warrior extends Characters {
      * @param C2    character who received damage
      * @return      String containing the conduct
      */
-    public String displayFight(Characters C1, Characters C2){
-        return C2.getName()+ " block " + this.shield + " damage thanks to his shield. " + C1.getName() + " inflict " + calculateDamage(C1.getPower()) + " damage to " +C2.getName() + ". he have "  + C2.getHp() + " hp remaining";
-
+    public String displayFight(Characters C1, Characters C2, int tour){
+        return C1.getName() + " inflict " + calculateDamage(C1.totalDamage(tour)) + " damage to " +C2.getName() + ". he have "  + C2.getHp() + " hp remaining";
+        //return C2.getName()+ " block " + calculateDamage(C1.totalDamage(tour)) + " damage thanks to his shield. " + C1.getName() + " inflict " + calculateDamage(C1.totalDamage(tour)) + " damage to " +C2.getName() + ". he have "  + C2.getHp() + " hp remaining";
     }
 
 
