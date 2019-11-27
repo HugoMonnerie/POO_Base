@@ -69,8 +69,7 @@ public class Wizard extends Characters{
      * @return      String containing the fight conduct
      */
     public String displayFight(Characters C1, Characters C2, int turn){
-        int damageDone =C2.hurt(C2.calculateDamage(C1.totalDamage(turn)));
-        return C1.setColor() +C1.getName() + "\033[0m inflict " + damageDone + " damage to " + C2.setColor() +C2.getName() + "\033[0m. he have "  + C2.getHp() + " hp remaining";
+        return super.displayFight(C1, C2, turn);
     }
 
 
