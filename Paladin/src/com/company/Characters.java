@@ -45,6 +45,9 @@ public class Characters {
      * @return hp remaining after applying damage value
      */
     public int hurt(int damageDone){
+        if(damageDone<0){
+            damageDone = 0;
+        }
         return this.hp = this.hp-damageDone ;
     }
 

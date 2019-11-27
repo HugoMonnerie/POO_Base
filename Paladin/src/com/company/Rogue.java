@@ -1,9 +1,12 @@
 package com.company;
 
+import java.util.Random;
+
 public class Rogue extends Characters{
 
     private int critic;
     private int dodge;
+    private boolean criticPrec = true;
 
     /**
      * get the critic of the character
@@ -14,11 +17,25 @@ public class Rogue extends Characters{
     }
 
     /**
-     * get the dodge of the character
-     * @return character's dodge
+     * get the power of the character
+     * @return character's power
      */
-    public int getDodge(){
-        return this.dodge;
+    public int getPower(){
+        Random rand = new Random();
+        if (rand.nextInt(100) <= critic) {
+            if (!criticPrec) {
+                criticPrec = true;
+                return super.getPower() * 2;
+            }
+            else {
+                criticPrec = false;
+                return super.getPower();
+            }
+        }
+        else {
+            criticPrec = false;
+            return super.getPower();
+        }
     }
 
     /**
@@ -41,8 +58,13 @@ public class Rogue extends Characters{
      * @return hp remaining after applying damage value
      */
     public int hurt(int damageDone){
-
-        return super.hurt(damageDone) ;
+        Random rand = new Random();
+        if (rand.nextInt(100) <= dodge){
+            damageDone=0;
+            return super.hurt(damageDone);
+        } else {
+            return super.hurt(damageDone);
+        }
     }
 
     /**

@@ -11,7 +11,7 @@ public class Main {
         List<Characters> listCharacters = new ArrayList<>();
         int id;
 
-        System.out.println("Application has started");          //story #1
+        System.out.println("Hello !\n");          //story #1
         Scanner sc = new Scanner(System.in);
 
         /**
@@ -33,7 +33,8 @@ public class Main {
             }
             else if (action.equals("create")){
                 System.out.println("What is his class ?");
-                System.out.println("0 : caca\n1 : Warrior\n2 : Wizzard\n3 : Rogue");
+                System.out.println("0 : Basic\n1 : Warrior\n2 : Wizzard\n3 : Rogue");
+                action=sc.nextLine();
 
                 if (action.equals("0")){
                     Commands.create(listCharacters);
@@ -69,16 +70,36 @@ public class Main {
                 action=sc.nextLine();
             }
             else if (action.equals("fight")){
-
                 System.out.println("enter first character's id");
                 int id1 =sc.nextInt();
 
                 System.out.println("enter secondary character's id");
                 int id2 =sc.nextInt();
 
-                System.out.println("Let the battle begin");
+                System.out.println("\n\033[31mLet the battle begin\033[0m");
+
                 Commands.fight(listCharacters, id1, id2);
 
+                System.out.println("\n\033[31mFinish\033[0m\n");
+                action=sc.nextLine();
+            }
+            else if (action.equals("defautWarrior")){
+                Characters war1 = new Warrior("Chrome", 200, 15, 3, 10);
+                listCharacters.add(war1);
+                System.out.println("Fighter create !");
+                System.out.println(war1);
+            }
+            else if(action.equals("defautWizard")){
+                Characters wiz1 = new Wizard("Hugo",100, 10, 5, 40);
+                listCharacters.add(wiz1);
+                System.out.println("Fighter create !");
+                System.out.println(wiz1);
+            }
+            else if(action.equals("defautRogue")){
+                Characters rog1 = new Rogue("Houssam",100, 15, 8, 20, 10);
+                listCharacters.add(rog1);
+                System.out.println("Fighter create !");
+                System.out.println(rog1);
             }
             else{
                 System.out.println("this command doesn't exit, these commands are available:");

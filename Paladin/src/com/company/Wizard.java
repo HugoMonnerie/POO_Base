@@ -3,7 +3,6 @@ package com.company;
 public class Wizard extends Characters{
 
     private int magic;
-    private int powerMagic = super.getPower() + magic;
 
     /**
      * get the magic of the character
@@ -11,6 +10,16 @@ public class Wizard extends Characters{
      */
     public int getMagic(){
         return this.magic;
+    }
+
+    /**
+     * get the power of the character
+     * @return character's power
+     */
+    public int getPower(){
+        int result = super.getPower()+this.magic;
+        this.magic = this.magic/2;
+        return result;
     }
 
     /**
@@ -24,15 +33,6 @@ public class Wizard extends Characters{
     public Wizard(String name, int hp, int power, int initiative, int magic){
         super(name, hp, power, initiative);
         this.magic=magic;
-    }
-
-    /**
-     * calcul of damages inflict by the character
-     * @return hp remaining after applying damage value
-     */
-    public int hurt(int damageDone){
-
-        return super.hurt(damageDone) ;
     }
 
     /**

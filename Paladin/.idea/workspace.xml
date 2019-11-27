@@ -2,10 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7b044b48-7db2-4f4e-b79e-de4c39642bc1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/company/Rogue.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/company/Warrior.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/company/Wizard.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Paladin/com/company/Characters.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Paladin/com/company/Characters.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Paladin/com/company/Commands.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Paladin/com/company/Commands.class" afterDir="false" />
@@ -13,6 +9,9 @@
       <change beforePath="$PROJECT_DIR$/src/com/company/Characters.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Characters.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/Commands.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Commands.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/Rogue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Rogue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/Warrior.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Warrior.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/Wizard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Wizard.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />

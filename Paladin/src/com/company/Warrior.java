@@ -31,9 +31,6 @@ public class Warrior extends Characters {
      */
     public int hurt(int damageDone){
         damageDone=damageDone-this.shield;
-        if(damageDone<0){
-            damageDone = 0;
-        }
         return super.hurt(damageDone) ;
     }
 

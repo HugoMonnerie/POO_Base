@@ -14,11 +14,14 @@ public class Commands {
         ArrayList listCommand = new ArrayList();
 
         listCommand.add("help");
-        listCommand.add("exit");
         listCommand.add("create");
+        listCommand.add("defautWarrior");
+        listCommand.add("defautWizard");
+        listCommand.add("defautRogue");
         listCommand.add("stat");
         listCommand.add("giveAll");
         listCommand.add("delete");
+        listCommand.add("exit");
 
         for (int i=0; i<listCommand.size(); i++) {
             System.out.println("command " + i + ": " + listCommand.get(i));
@@ -142,6 +145,8 @@ public class Commands {
 
         Characters newFighter = new Rogue(hisName, hisHp, hisPower, hisInitiative, hisCritic, hisDodge);
         listCharacters.add(newFighter);
+
+        System.out.println(newFighter);
     }
 
     /**
@@ -165,7 +170,7 @@ public class Commands {
         for (int i=0; i<listCharacters.size(); i++)
         {
             Characters C = (Characters) listCharacters.get(i);
-            System.out.println("id: " + i + " |  name: " + C.getName());
+            System.out.println("id: " + i +" | "+ C);
         }
 
         if (listCharacters.size()==0){
@@ -198,28 +203,34 @@ public class Commands {
         int turn = 0;
 
         if (C1.getInitiative() > C2.getInitiative()) {
-            while (C1.getHp() >= 0 || C2.getHp() >= 0) {
+            while (C1.getHp() > 0 || C2.getHp() > 0) {
                 turn++;
-                System.out.println( "\n-- turn "+ turn +" --\n");
+                System.out.println( "\n\033[34m-- turn "+ turn +" --\033[0m\n");
                 C2.hurt(C1.getPower());
                 System.out.println(C1.getName()+" inflict "+C1.getPower()+" to "+ C2.getName()+", have "+C2.getHp()+" HP ");
 
-                if (C1.getHp() >= 0 || C2.getHp() >= 0){
+                if (C1.getHp() > 0 || C2.getHp() > 0){
                     C1.hurt(C2.getPower());
                     System.out.println(C2.getName()+" inflict "+C2.getPower()+" to "+ C1.getName()+", have "+C1.getHp()+" HP ");
+                }
+                else {
+                    break;
                 }
             }
         }
         else {
-            while (C1.getHp() >= 0 || C2.getHp() >= 0) {
+            while (C1.getHp() > 0 || C2.getHp() > 0) {
                 turn++;
-                System.out.println( "\n-- turn "+ turn +" --\n");
+                System.out.println( "\n\033[34m-- turn "+ turn +" --\033[0m\n");
                 C1.hurt(C2.getPower());
                 System.out.println(C2.getName()+" inflict "+C2.getPower()+" to "+ C1.getName()+", have "+C1.getHp()+" HP ");
 
-                if (C1.getHp() >= 0 || C2.getHp() >= 0){
+                if (C1.getHp() > 0 || C2.getHp() > 0){
                     C2.hurt(C2.getPower());
                     System.out.println(C1.getName()+" inflict "+C1.getPower()+" to "+ C2.getName()+", have "+C2.getHp()+" HP ");
+                }
+                else {
+                    break;
                 }
             }
         }
