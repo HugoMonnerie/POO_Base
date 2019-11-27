@@ -8,6 +8,37 @@ public class Characters {
     private int maxHp;
     private int power;
     private int initiative;
+    protected boolean doACritical;
+
+
+    //#######################################################################################
+    //########################    characters constructors    ################################
+    //#######################################################################################
+    /**
+     * user's constructor of characters
+     * @param name          character's name
+     * @param hp            character's hp
+     * @param power         character's power
+     * @param initiative    character's initiative
+     */
+    public Characters(String name,  int hp, int power, int initiative){
+        this.name=name;
+        this.hp=hp;
+        this.maxHp=hp;
+        this.power=power;
+        this.initiative=initiative;
+        this.doACritical=false;
+    }
+
+
+    /**
+     * default constructor characters
+     */
+    public Characters(){
+        this("hugo", 30, 5, 8);
+    }
+
+
 
 
     //#######################################################################################
@@ -67,7 +98,7 @@ public class Characters {
     /**
      * restore the wounded character's hp
      */
-    public void heal(){
+    public void restore(){
         this.hp=this.maxHp;
     }
 
@@ -91,6 +122,7 @@ public class Characters {
         return this.getPower();
     }
 
+
     /**
      * check if a character is dead, show the looser and the winner
      * @param C1        character which could be dead
@@ -107,33 +139,6 @@ public class Characters {
         return isAlive==true;
     }
 
-
-
-
-    //#######################################################################################
-    //########################    characters constructors    ################################
-    //#######################################################################################
-    /**
-     * user's constructor of characters
-     * @param name          character's name
-     * @param hp            character's hp
-     * @param power         character's power
-     * @param initiative    character's initiative
-     */
-    public Characters(String name,  int hp, int power, int initiative){
-        this.name=name;
-        this.hp=hp;
-        this.maxHp=hp;
-        this.power=power;
-        this.initiative=initiative;
-    }
-
-    /**
-     * default constructor characters
-     */
-    public Characters(){
-        this("hugo", 30, 5, 8);
-    }
 
 
 
@@ -156,8 +161,13 @@ public class Characters {
      * @param C2    character who received damage
      * @return      String containing the conduct
      */
-    public String displayFight(Characters C1, Characters C2, int tour){
-        int damageDone =C2.hurt(C2.calculateDamage(C1.totalDamage(tour)));
+    public String displayFight(Characters C1, Characters C2, int turn){
+        int damageDone =C2.hurt(C2.calculateDamage(C1.totalDamage(turn)));
+
+        if (doACritical){
+            return C1.getName() + " inflict " + damageDone + " critical damage to " +C2.getName() + ". he have "  + C2.getHp() + " hp remaining";
+        }
+
         return C1.getName() + " inflict " + damageDone + " damage to " + C2.getName() + ". he have "  + C2.getHp() + " hp remaining";
     }
 

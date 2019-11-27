@@ -4,7 +4,9 @@ public class Wizard extends Characters{
     private int intelligence;
     private int maxIntelligence;
 
-
+    //#######################################################################################
+    //###########################    Wizard constructor    ##################################
+    //#######################################################################################
     /**
      * user's constructor of Wizards
      * @param name          Wizard's name
@@ -20,6 +22,9 @@ public class Wizard extends Characters{
     }
 
 
+    //#######################################################################################
+    //#############################    Wizard getter    #####################################
+    //#######################################################################################
     /**
      * get the Wizard's intelligence
      * @return int intelligence
@@ -29,15 +34,9 @@ public class Wizard extends Characters{
     }
 
 
-    /**
-     * display Wizard's stats
-     * @return String containing his stats
-     */
-    public String toString(){
-        return super.toString() +" |  intelligence: " + this.intelligence +"\n";
-    }
-
-
+    //#######################################################################################
+    //##############################    fight Area    #######################################
+    //#######################################################################################
     /**
      * calculate the total damage done by a Wizard
      * @param turn  number of the current turn
@@ -45,6 +44,20 @@ public class Wizard extends Characters{
      */
     public int totalDamage(int turn){
         return (int)(this.getPower()+this.intelligence/(Math.pow(2, turn)));
+    }
+
+
+
+
+    //#######################################################################################
+    //#############################    display Area    ######################################
+    //#######################################################################################
+    /**
+     * display Wizard's stats
+     * @return String containing his stats
+     */
+    public String toString(){
+        return super.toString() +" |  intelligence: " + this.intelligence +"\n";
     }
 
 

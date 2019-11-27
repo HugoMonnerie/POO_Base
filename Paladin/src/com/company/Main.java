@@ -85,8 +85,9 @@ public class Main {
 
             else if(action.equals("fight") || action.equals("9"))
             {
-                System.out.println("enter fighter's id ");
+                System.out.println("enter fighter's id \nfighter's id 1:");
                 id1 =sc.nextInt();
+                System.out.println("fighter's id 2:");
                 id2 =sc.nextInt();
                 Commands.fight(listCharacters, id1, id2);
                 action=sc.nextLine();

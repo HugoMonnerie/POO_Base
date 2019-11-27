@@ -9,6 +9,9 @@ public class Rogue extends Characters{
     private int initialCritical;
 
 
+    //#######################################################################################
+    //###########################    Rogue Constructor    ###################################
+    //#######################################################################################
     /**
      * user's constructor of Rogue
      * @param name          Rogue's name
@@ -27,6 +30,9 @@ public class Rogue extends Characters{
     }
 
 
+    //#######################################################################################
+    //#############################    Rogue getter    ######################################
+    //#######################################################################################
     /**
      * get the Rogue's dodge value
      * @return int dodge
@@ -44,20 +50,17 @@ public class Rogue extends Characters{
         return this.critical;
     }
 
-    /**
-     * display Rogue's stats
-     * @return String containing his stats
-     */
-    public String toString(){
-        return super.toString() + " |  dodge: " + this.dodge + " |  critical: " + this.critical + "\n";
-    }
 
 
+
+    //#######################################################################################
+    //##############################    fight Area    #######################################
+    //#######################################################################################
     /**
      * restore all Rogue stats
      */
-    public void heal(){
-        super.heal();
+    public void restore(){
+        super.restore();
         this.dodge=this.initialDodge;
         this.critical=this.initialCritical;
     }
@@ -75,9 +78,11 @@ public class Rogue extends Characters{
 
         if (this.critical>100){   //&& this.tourCritical<tour-1
             this.critical=this.initialCritical/2;
+            this.doACritical=true;
             return this.getPower()*2;
         }
 
+        this.doACritical=false;
         return this.getPower();
     }
 
@@ -100,6 +105,20 @@ public class Rogue extends Characters{
     }
 
 
+
+
+    //#######################################################################################
+    //#############################    display Area    ######################################
+    //#######################################################################################
+    /**
+     * display Rogue's stats
+     * @return String containing his stats
+     */
+    public String toString(){
+        return super.toString() + " |  dodge: " + this.dodge + " |  critical: " + this.critical + "\n";
+    }
+
+
     /**
      *
      * display the fight conduct
@@ -107,11 +126,15 @@ public class Rogue extends Characters{
      * @param C2    character who received damage
      * @return      String containing the fight conduct
      */
-    public String displayFight(Characters C1, Characters C2, int tour){
-        int damageDone = C2.hurt(C2.calculateDamage(C1.totalDamage(tour)));
+    public String displayFight(Characters C1, Characters C2, int turn){
+        int damageDone = C2.hurt(C2.calculateDamage(C1.totalDamage(turn)));
+        if (damageDone==0){
+            return C2.getName()+ " dodge the attack from " +C1.getName() + ". " + C1.getName() + " inflict " + damageDone + " damage to " +C2.getName() + ", he have "  + C2.getHp() + " hp remaining";
+        }
         return C1.getName() + " inflict " + damageDone + " damage to " +C2.getName() + ". he have "  + C2.getHp() + " hp remaining";
 
     }
+
 
     /**
      * display character's class

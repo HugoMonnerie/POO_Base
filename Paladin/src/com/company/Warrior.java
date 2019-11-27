@@ -3,6 +3,10 @@ package com.company;
 public class Warrior extends Characters {
     private int shield;
 
+
+    //#######################################################################################
+    //##########################    Warrior constructor    ##################################
+    //#######################################################################################
     /**
      * user's constructor of Warriors
      * @param name          Warrior's name
@@ -17,6 +21,11 @@ public class Warrior extends Characters {
     }
 
 
+
+
+    //#######################################################################################
+    //############################    Warriors getter    ####################################
+    //#######################################################################################
     /**
      * get the Warrior's shield value
      * @return int shield
@@ -26,15 +35,11 @@ public class Warrior extends Characters {
     }
 
 
-    /**
-     * display Warrior's stats
-     * @return   String containing his stats
-     */
-    public String toString(){
-        return super.toString() +" |  shield: " + this.shield +"\n";
-    }
 
 
+    //#######################################################################################
+    //##############################    fight Area    #######################################
+    //#######################################################################################
     /**
      * calculate Warrior's damage taken with his shield
      * @param damageDone    opponent's damage
@@ -49,6 +54,20 @@ public class Warrior extends Characters {
     }
 
 
+
+
+    //#######################################################################################
+    //##############################    display Area    #####################################
+    //#######################################################################################
+    /**
+     * display Warrior's stats
+     * @return   String containing his stats
+     */
+    public String toString(){
+        return super.toString() +" |  shield: " + this.shield +"\n";
+    }
+
+
     /**
      * display the fight conduct
      * @param C1    character who inflict damage
@@ -57,7 +76,7 @@ public class Warrior extends Characters {
      */
     public String displayFight(Characters C1, Characters C2, int turn){
         int damageDone = C2.hurt(C2.calculateDamage(C1.totalDamage(turn)));
-        return C1.getName() + " inflict " + damageDone + " damage to " +C2.getName() + ". he have "  + C2.getHp() + " hp remaining";
+        return C1.getName() + " inflict only " + damageDone + " damage to " +C2.getName() + " thanks to his shield. he have "  + C2.getHp() + " hp remaining";
     }
 
 

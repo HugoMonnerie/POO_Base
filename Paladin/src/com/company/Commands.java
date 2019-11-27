@@ -236,7 +236,7 @@ public class Commands {
      * @param id2                   second character's id
      */
     static void fight(List listCharacters,  int id1, int id2){
-        int i=0;
+        int turn=0;
         Characters C1 = (Characters) listCharacters.get(id1);
         Characters C2 = (Characters) listCharacters.get(id2);
 
@@ -251,21 +251,21 @@ public class Commands {
         System.out.println(C1.getName() + " is too fast for " + C2.getName());
 
         while ((C1.getHp()>0 && C2.getHp()>0 ) || isAlive){
-            i++;
-            System.out.print("\n -- turn " + i + " --\n");
+            turn++;
+            System.out.print("\n -- turn " + turn + " --\n");
 
-            System.out.println(C2.displayFight(C1, C2, i));
+            System.out.println(C2.displayFight(C1, C2, turn));
             isAlive=C2.isDead(C2, C1, isAlive);
 
             if (!isAlive){
                 break;
             }
-            System.out.println(C1.displayFight(C2, C1, i));
+            System.out.println(C1.displayFight(C2, C1, turn));
             isAlive=C1.isDead(C1, C2, isAlive);
 
         }
-        C1.heal();
-        C2.heal();
+        C1.restore();
+        C2.restore();
 
     }
 
