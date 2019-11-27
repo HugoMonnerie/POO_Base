@@ -26,7 +26,7 @@ public class Main {
          */
         do {
             System.out.println("\nwhat do you want to do now?\n(help to have the commands list)");
-            action=sc.nextLine();
+            action=sc.nextLine().toLowerCase();
 
             if (action.equals("exit") || action.equals("0")){
                 isExit = Commands.exit();
@@ -94,32 +94,35 @@ public class Main {
 
             else if(action.equals("fight") || action.equals("9"))
             {
-                System.out.println("enter fighter's id \nfighter's id 1:");
-                try {
+                if (listCharacters.size()>=2) {
+                    System.out.println("enter fighter's id \nfighter's id 1:");
+                    try {
 
-                    id1 = sc.nextInt();
-                    if (listCharacters.size()>id1-1) {
+                        id1 = sc.nextInt();
+                        if (listCharacters.size() > id1 - 1) {
 
-                        try {
-                            System.out.println("fighter's id 2:");
-                            id2 = sc.nextInt();
-                            while (id1==id2){
-                                System.out.println(listCharacters.get(id1).getName() + " can't fight himself. enter an other id:");
+                            try {
+                                System.out.println("fighter's id 2:");
                                 id2 = sc.nextInt();
+                                while (id1 == id2) {
+                                    System.out.println(listCharacters.get(id1).getName() + " can't fight himself. enter an other id:");
+                                    id2 = sc.nextInt();
+                                }
+                                Commands.fight(listCharacters, id1, id2);
+                            } catch (Exception e) {
+                                System.out.println("you don't have entered a valid id");
                             }
-                            Commands.fight(listCharacters, id1, id2);
-                        } catch (Exception e) {
-                            System.out.println("you don't have entered a valid id");
+                        } else {
+                            System.out.println("there is nobody with this id");
                         }
+                    } catch (Exception e) {
+                        System.out.println("you don't have entered a valid id");
                     }
-                    else{
-                        System.out.println("there is nobody with this id");
-                    }
-                } catch (Exception e){
-                    System.out.println("you don't have entered a valid id");
+                    action=sc.nextLine();
                 }
-
-                action=sc.nextLine();
+                else {
+                    System.out.println("not enough fighters for a fight");
+                }
             }
 
             else{
