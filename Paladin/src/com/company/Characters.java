@@ -10,9 +10,12 @@ public class Characters {
     private int initiative;
 
 
+    //#######################################################################################
+    //###########################    character getters    ###################################
+    //#######################################################################################
     /**
      * get the name of the character
-     * @return character's name
+     * @return int character's name
      */
     public String getName(){
         return this.name;
@@ -21,7 +24,7 @@ public class Characters {
 
     /**
      * get the hearth points of the character
-     * @return character's hp
+     * @return int character's hp
      */
     public int getHp(){
         return this.hp;
@@ -30,7 +33,7 @@ public class Characters {
 
     /**
      * get the power of the character
-     * @return character's power
+     * @return int character's power
      */
     public int getPower(){
         return this.power;
@@ -39,24 +42,30 @@ public class Characters {
 
     /**
      * get the initiative of the character
-     * @return character's initiative
+     * @return int character's initiative
      */
     public int getInitiative(){
         return this.initiative;
     }
 
 
+
+
+    //#######################################################################################
+    //############################     fighting Area     ####################################
+    //#######################################################################################
     /**
      * calculate hp remaining after receiving damage
+     * @return int the damage done
      */
-    public void hurt(int damageDone){
+    public int hurt(int damageDone){
         this.hp=this.hp-damageDone;
+        return damageDone;
     }
 
 
     /**
-     * give the hp wanted by the user to the wounded character
-     * @param hpMax     character's max hp
+     * restore the wounded character's hp
      */
     public void heal(){
         this.hp=this.maxHp;
@@ -64,7 +73,48 @@ public class Characters {
 
 
     /**
-     * constructor of character
+     * calculate damage received by a character
+     * @param damageDone    damage done by a character
+     * @return              int the damage done
+     */
+    public int calculateDamage(int damageDone){
+        return damageDone;
+    }
+
+
+    /**
+     * calculate the total damage done by a character
+     * @param turn  number of the current turn
+     * @return      int the damage done
+     */
+    public int totalDamage(int turn){
+        return this.getPower();
+    }
+
+    /**
+     * check if a character is dead, show the looser and the winner
+     * @param C1        character which could be dead
+     * @param C2        character which could win
+     * @param isAlive   boolean which check if C1 is alive
+     * @return          boolean isAlive=true if C1 is Alive
+     */
+    public boolean isDead(Characters C1, Characters C2, boolean isAlive){
+        if (C1.getHp()<=0)
+        {
+            System.out.println(C1.getName() + " is down\n" + C2.getName() + " is victorious\n");
+            return isAlive==false;
+        }
+        return isAlive==true;
+    }
+
+
+
+
+    //#######################################################################################
+    //########################    characters constructors    ################################
+    //#######################################################################################
+    /**
+     * user's constructor of character
      * @param name          character's name
      * @param hp            character's hp
      * @param power         character's power
@@ -78,11 +128,19 @@ public class Characters {
         this.initiative=initiative;
     }
 
-
+    /**
+     * default constructor character
+     */
     public Characters(){
         this("hugo", 30, 5, 8);
     }
 
+
+
+
+    //#######################################################################################
+    //############################    displaying area    ####################################
+    //#######################################################################################
     /**
      * display character's stats
      * @return  String containing his stats
@@ -99,32 +157,15 @@ public class Characters {
      * @return      String containing the conduct
      */
     public String displayFight(Characters C1, Characters C2, int tour){
-        return C1.getName() + " inflict " + C1.totalDamage(tour) + " damage to " + C2.getName() + ". he have "  + C2.getHp() + " hp remaining";
+        int damageDone =C2.hurt(C2.calculateDamage(C1.totalDamage(tour)));
+        return C1.getName() + " inflict " + damageDone + " damage to " + C2.getName() + ". he have "  + C2.getHp() + " hp remaining";
     }
 
 
-
-    public int calculateDamage(int damageDone){
-        return damageDone;
-    }
-
-
-
-    public int totalDamage(int tour){
-       return this.getPower();
-    }
-
-
-    public boolean isDead(Characters C1, Characters C2, boolean isAlive){
-        if (C1.getHp()<=0)
-        {
-            System.out.println(C1.getName() + " is down\n" + C2.getName() + " is victorious\n");
-            return isAlive==false;
-        }
-        return isAlive==true;
-    }
-
-
+    /**
+     * display the character's Class
+     * @return String containing nothing for a common Character
+     */
     public String displayClass(){
         return "";
     }

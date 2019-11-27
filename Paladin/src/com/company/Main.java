@@ -14,7 +14,7 @@ public class Main {
         int id2;
 
 
-        System.out.println("Application has started");          //story #1
+        System.out.println("Application has started");
         Scanner sc = new Scanner(System.in);
 
         /**
@@ -34,6 +34,7 @@ public class Main {
             else if (action.equals("help") || action.equals("1")){
                 Commands.help();
             }
+
             else if (action.equals("create") || action.equals("2")){
                 Commands.addToList(Commands.create(), listCharacters);
             }
@@ -41,6 +42,7 @@ public class Main {
             {
                 Commands.addToList(Commands.createWarrior(), listCharacters);
             }
+
             else if (action.equals("createWizard") || action.equals("4"))
             {
                 Commands.addToList(Commands.createWizard(), listCharacters);
@@ -49,6 +51,7 @@ public class Main {
             {
                 Commands.addToList(Commands.createRogue(), listCharacters);
             }
+
             else if (action.equals("stat") || action.equals("6")){
                 System.out.println("enter character's id:");
                 id =sc.nextInt();
@@ -58,6 +61,7 @@ public class Main {
             else if (action.equals("giveAll") || action.equals("7")) {
                 Commands.giveAll(listCharacters);
             }
+
             else if (action.equals("delete") || action.equals("8"))
             {
                 if (!listCharacters.isEmpty()) {
@@ -78,6 +82,7 @@ public class Main {
                     System.out.println("there is nobody to fire");
                 }
             }
+
             else if(action.equals("fight") || action.equals("9"))
             {
                 System.out.println("enter fighter's id ");

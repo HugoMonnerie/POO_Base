@@ -5,13 +5,16 @@ import java.util.Scanner;
 
 public class Commands {
 
+    //#######################################################################################
+    //#########################    application commands    ##################################
+    //#######################################################################################
     /**
      * print the available commands
-     * @param listCommand       Array containing all commands in class Commands
      */
     public static void help()       //display usable command
     {
         ArrayList listCommand = new ArrayList();
+
         listCommand.add("exit");
         listCommand.add("help");
         listCommand.add("create");
@@ -32,7 +35,7 @@ public class Commands {
 
     /**
      * using to stop the while loop, and exit
-     * @return true
+     * @return  true
      */
     public static boolean exit()
     {
@@ -41,13 +44,14 @@ public class Commands {
     }
 
 
+
+
+    //#######################################################################################
+    //###########################    characters editor    ###################################
+    //#######################################################################################
     /**
      * create a common character with the parameter added by the user
-     * @param hisName       name choose by the user
-     * @param hisHp         amount of hp choose by the user
-     * @param hisPower      the power choose by the user
-     * @param hisInitiative initiative choose by the user
-     * @return the new Fighter
+     * @return  the new Fighter
      */
     static Characters create()
     {
@@ -59,7 +63,7 @@ public class Commands {
         System.out.println("what is the character's amount of hp?");
         int hisHp = sc.nextInt();
         while (hisHp<=0){
-            System.out.println("is he already die? enter an amount of hp higher than 0");
+            System.out.println("is he already dead? enter an amount of hp higher than 0");
             hisHp = sc.nextInt();
         }
 
@@ -73,7 +77,7 @@ public class Commands {
         System.out.println("what is the character's initiative value?");
         int hisInitiative = sc.nextInt();
         while (hisInitiative<=0){
-            System.out.println("even a snail should be faster than this. enter a shield higher than 0");
+            System.out.println("even a snail should be faster than this. enter an initiative higher than 0");
             hisInitiative = sc.nextInt();
         }
 
@@ -83,8 +87,7 @@ public class Commands {
 
     /**
      * create a Warrior character
-     * @param hisShield     shield value of the Warrior
-     * @return the new Fighter
+     * @return  the new Fighter
      */
     static Characters createWarrior(){
         Characters C =create();
@@ -93,7 +96,7 @@ public class Commands {
         System.out.println("what is the character's shield value?");
         int hisShield = sc.nextInt();
         while (hisShield<=0){
-            System.out.println("even the worst shield should be more efficient than this, enter a shield higher than 0");
+            System.out.println("even the worst shield should be more efficient than this. enter a shield higher than 0");
             hisShield = sc.nextInt();
         }
         return new Warrior(C.getName(), C.getHp(), C.getPower(), C.getInitiative(), hisShield);
@@ -102,7 +105,7 @@ public class Commands {
 
     /**
      * create a Wizard character
-     * @return the new Fighter
+     * @return  the new Fighter
      */
     static Characters createWizard(){
         Characters C =create();
@@ -111,13 +114,16 @@ public class Commands {
         System.out.println("what is the character's intelligence value?");
         int hisIntelligence = sc.nextInt();
         while (hisIntelligence<=0){
-            System.out.println("even the worst wizard should have more intelligence than this, enter an intelligence higher than 0");
+            System.out.println("even the worst wizard should have more intelligence than this. enter an intelligence higher than 0");
             hisIntelligence = sc.nextInt();
         }
         return new Wizard(C.getName(), C.getHp(), C.getPower(), C.getInitiative(), hisIntelligence);
     }
 
-
+    /**
+     * create a Rogue character
+     * @return  the new fighter
+     */
     static Characters createRogue(){
         Characters C =create();
         Scanner sc = new Scanner(System.in);
@@ -132,13 +138,19 @@ public class Commands {
         System.out.println("what is the character's critical value?");
         int hisCritical = sc.nextInt();
         while (hisCritical<=0){
-            System.out.println("your rogue should have a chance to do critical attack. enter a dodge value higher than 0");
+            System.out.println("your rogue should have a chance to do critical attack. enter a critical value higher than 0");
             hisCritical = sc.nextInt();
         }
 
         return new Rogue(C.getName(), C.getHp(), C.getPower(), C.getInitiative(), hisDodge, hisCritical);
     }
 
+
+
+
+    //#######################################################################################
+    //#######################    characters list management    ##############################
+    //#######################################################################################
     /**
      * add a character into the characters list
      * @param newFighter        the character created
@@ -149,6 +161,39 @@ public class Commands {
     }
 
 
+    /**
+     * delete a character thanks to his id
+     * @param listCharacters        characters list
+     * @param id                    character's
+     */
+    static void delete(List listCharacters, int id)
+    {
+        Scanner sc = new Scanner(System.in);
+
+        Characters C = (Characters) listCharacters.get(id);
+        System.out.println("are you sure you want to delete "+ C.getName() + "?");
+
+        String confirm = sc.nextLine().toLowerCase();
+
+        if (confirm.equals("no"))
+        {
+            System.out.println(C.getName()+ C.displayClass() + " is grateful");
+        }
+        else if (confirm.equals("yes")){
+            System.out.println(C.getName() + C.displayClass() + " walk far away...");
+            listCharacters.remove(id);
+        }
+        else{
+            System.out.println("you don't seem sure, "+  C.getName()+ C.displayClass() + " stay here");
+        }
+    }
+
+
+
+
+    //#######################################################################################
+    //###########################    characters getter    ###################################
+    //#######################################################################################
     /**
      * give the stat of a character select by the user
      * @param listCharacters    usable characters list
@@ -180,12 +225,15 @@ public class Commands {
     }
 
 
+
+    //#######################################################################################
+    //###########################    characters fight    ###################################
+    //#######################################################################################
     /**
      * generate a fight between 2 character selected thanks to their id
      * @param listCharacters        characters list
      * @param id1                   first character's id
      * @param id2                   second character's id
-     * @param isAlive               check if someone is dead
      */
     static void fight(List listCharacters,  int id1, int id2){
         int i=0;
@@ -204,16 +252,14 @@ public class Commands {
 
         while ((C1.getHp()>0 && C2.getHp()>0 ) || isAlive){
             i++;
-            System.out.print("\n -- tour " + i + " --\n");
+            System.out.print("\n -- turn " + i + " --\n");
 
-            C2.hurt(C1.calculateDamage(C1.totalDamage(i)));
             System.out.println(C2.displayFight(C1, C2, i));
             isAlive=C2.isDead(C2, C1, isAlive);
 
             if (!isAlive){
                 break;
             }
-            C1.hurt(C2.calculateDamage(C2.totalDamage(i)));
             System.out.println(C1.displayFight(C2, C1, i));
             isAlive=C1.isDead(C1, C2, isAlive);
 
@@ -224,31 +270,5 @@ public class Commands {
     }
 
 
-    /**
-     * delete a character thanks to his id
-     * @param listCharacters        characters list
-     * @param id                    character's
-     */
-    static void delete(List listCharacters, int id)
-    {
-        Scanner sc = new Scanner(System.in);
-
-        Characters C = (Characters) listCharacters.get(id);
-        System.out.println("are you sure you want to delete "+ C.getName() + "?");
-
-        String confirm = sc.nextLine().toLowerCase();
-
-        if (confirm.equals("no"))
-        {
-            System.out.println(C.getName()+ C.displayClass() + " is grateful");
-        }
-        else if (confirm.equals("yes")){
-            System.out.println(C.getName() + C.displayClass() + " walk far away...");
-            listCharacters.remove(id);
-        }
-        else{
-            System.out.println("you don't seem sure, "+  C.getName()+ C.displayClass() + " stay here");
-        }
-    }
 
 }

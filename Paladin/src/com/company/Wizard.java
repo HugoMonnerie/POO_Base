@@ -4,6 +4,8 @@ public class Wizard extends Characters{
     private int intelligence;
     private int maxIntelligence;
 
+
+
     public Wizard(String name, int hp, int power, int initiative , int intelligence){
         super(name, hp, power, initiative);
         this.intelligence=intelligence;
@@ -23,13 +25,17 @@ public class Wizard extends Characters{
     }
 
 
-    public String displayFight(Characters C1, Characters C2, int tour){
-        return C1.getName() + " inflict " + C1.calculateDamage(C1.totalDamage(tour)) + " damage to " +C2.getName() + ". he have "  + C2.getHp() + " hp remaining";
+    public String displayFight(Characters C1, Characters C2, int turn){
+        int damageDone =C2.hurt(C2.calculateDamage(C1.totalDamage(turn)));
+        return C1.getName() + " inflict " + damageDone + " damage to " +C2.getName() + ". he have "  + C2.getHp() + " hp remaining";
 
     }
 
 
-
+    /**
+     *
+     * @return
+     */
     public String displayClass(){
         return " the " + this.getClass().getSimpleName();
     }
