@@ -9,11 +9,11 @@ public class Warrior extends Characters {
     //#######################################################################################
     /**
      * user's constructor of Warriors
-     * @param name          Warrior's name
-     * @param hp            Warrior's hp
-     * @param power         Warrior's power
-     * @param initiative    Warrior's initiative
-     * @param shield        Warrior's shield
+     * @param name          String : Warrior's name
+     * @param hp            int : Warrior's hp
+     * @param power         int : Warrior's power
+     * @param initiative    int : Warrior's initiative
+     * @param shield        int : Warrior's shield
      */
     public Warrior(String name, int hp, int power, int initiative , int shield){
         super(name, hp, power, initiative);
@@ -28,7 +28,7 @@ public class Warrior extends Characters {
     //#######################################################################################
     /**
      * get the Warrior's shield value
-     * @return int shield
+     * @return int : shield
      */
     public int getShield(){
         return this.shield;
@@ -42,8 +42,8 @@ public class Warrior extends Characters {
     //#######################################################################################
     /**
      * calculate Warrior's damage taken with his shield
-     * @param damageDone    opponent's damage
-     * @return              int damage taken
+     * @param damageDone    int : opponent's damage
+     * @return              int : damage taken
      */
     public int calculateDamage(int damageDone){
         damageDone=damageDone-this.shield;
@@ -61,7 +61,7 @@ public class Warrior extends Characters {
     //#######################################################################################
     /**
      * display Warrior's stats
-     * @return   String containing his stats
+     * @return   String : containing his stats
      */
     public String toString(){
         return setColor() + this.getClass().getSimpleName() + " |  " + super.toString() +" |  shield: " + this.shield + super.setColor();
@@ -70,9 +70,9 @@ public class Warrior extends Characters {
 
     /**
      * display the fight conduct
-     * @param C1    character who inflict damage
-     * @param C2    character who received damage
-     * @return      String containing the fight conduct
+     * @param C1    Characters : character who inflict damage
+     * @param C2    Characters : character who received damage
+     * @return      String : containing the fight conduct
      */
     public String displayFight(Characters C1, Characters C2, int turn){
         int damageDone = C2.hurt(C2.calculateDamage(C1.totalDamage(turn)));
@@ -85,7 +85,7 @@ public class Warrior extends Characters {
 
     /**
      * display character's class
-     * @return String containing " the Warrior"
+     * @return String : containing " the Warrior"
      */
     public String displayClass(){
         return " the " + this.getClass().getSimpleName();
@@ -94,7 +94,7 @@ public class Warrior extends Characters {
 
     /**
      * using to set text color
-     * @return String containing the color wanted
+     * @return String : containing the color wanted
      */
     public String setColor(){
         return "\033[31m";

@@ -35,7 +35,7 @@ public class Commands {
 
     /**
      * using to stop the while loop, and exit
-     * @return  true
+     * @return  boolean : true
      */
     public static boolean exit()
     {
@@ -51,7 +51,7 @@ public class Commands {
     //#######################################################################################
     /**
      * create a common character with the parameter added by the user
-     * @return  the new Fighter
+     * @return  Characters : the new Fighter
      */
     static Characters create()
     {
@@ -103,7 +103,7 @@ public class Commands {
 
     /**
      * create a Warrior character
-     * @return  the new Fighter
+     * @return  Warrior : the new Fighter
      */
     static Characters createWarrior(){
         Characters C =create();
@@ -127,7 +127,7 @@ public class Commands {
 
     /**
      * create a Wizard character
-     * @return  the new Fighter
+     * @return  Wizard : the new Fighter
      */
     static Characters createWizard(){
         Characters C =create();
@@ -149,7 +149,7 @@ public class Commands {
 
     /**
      * create a Rogue character
-     * @return  the new fighter
+     * @return  Rogue : the new fighter
      */
     static Characters createRogue(){
         Characters C =create();
@@ -191,8 +191,8 @@ public class Commands {
     //#######################################################################################
     /**
      * delete a character thanks to his id
-     * @param listCharacters        characters list
-     * @param id                    character's
+     * @param listCharacters        ArrayList : characters list
+     * @param id                    int : character's id
      */
     static void delete(List listCharacters, int id)
     {
@@ -224,8 +224,8 @@ public class Commands {
     //#######################################################################################
     /**
      * give the stat of a character select by the user
-     * @param listCharacters    usable characters list
-     * @param id                character's id
+     * @param listCharacters    ArrayList : usable characters list
+     * @param id                int : character's id
      */
     static void stat(List listCharacters, int id){
 
@@ -236,7 +236,7 @@ public class Commands {
 
     /**
      * give all the characters in the list
-     * @param listCharacters    characters list
+     * @param listCharacters    ArrayList : characters list
      */
     static void giveAll(List listCharacters){
 
@@ -259,9 +259,9 @@ public class Commands {
     //#######################################################################################
     /**
      * generate a fight between 2 character selected thanks to their id
-     * @param listCharacters        characters list
-     * @param id1                   first character's id
-     * @param id2                   second character's id
+     * @param listCharacters        ArrayList : characters list
+     * @param id1                   int : first character's id
+     * @param id2                   int : second character's id
      */
     static void fight(List listCharacters,  int id1, int id2){
         int turn=0;

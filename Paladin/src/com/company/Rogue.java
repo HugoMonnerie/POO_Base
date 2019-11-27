@@ -14,12 +14,12 @@ public class Rogue extends Characters{
     //#######################################################################################
     /**
      * user's constructor of Rogue
-     * @param name          Rogue's name
-     * @param hp            Rogue's hp
-     * @param power         Rogue's power
-     * @param initiative    Rogue's initiative
-     * @param dodge         Rogue's dodge
-     * @param critical      Rogue's critical
+     * @param name          String : Rogue's name
+     * @param hp            int : Rogue's hp
+     * @param power         int : Rogue's power
+     * @param initiative    int : Rogue's initiative
+     * @param dodge         int : Rogue's dodge
+     * @param critical      int : Rogue's critical
      */
     public Rogue(String name, int hp, int power, int initiative , int dodge ,int critical){
         super(name, hp, power, initiative);
@@ -35,7 +35,7 @@ public class Rogue extends Characters{
     //#######################################################################################
     /**
      * get the Rogue's dodge value
-     * @return int dodge
+     * @return int : dodge
      */
     public int getDodge(){
         return this.dodge;
@@ -44,7 +44,7 @@ public class Rogue extends Characters{
 
     /**
      * get the Rogue's critical value
-     * @return int critical
+     * @return int : critical
      */
     public int getCritical(){
         return this.critical;
@@ -68,8 +68,8 @@ public class Rogue extends Characters{
 
     /**
      * calculate the total damage done by a Rogue with his critical skill
-     * @param turn  number of the current turn
-     * @return      int the damageDone
+     * @param turn  int : number of the current turn
+     * @return      int : the damageDone
      */
     public int totalDamage(int turn){
         Random rand = new Random();
@@ -89,8 +89,8 @@ public class Rogue extends Characters{
 
     /**
      * calculate Rogue's damage taken with his dodging skill
-     * @param damageDone    opponent's damage
-     * @return              int damage taken
+     * @param damageDone    int : opponent's damage
+     * @return              int : damage taken
      */
     public int calculateDamage(int damageDone){
         Random rand = new Random();
@@ -112,7 +112,7 @@ public class Rogue extends Characters{
     //#######################################################################################
     /**
      * display Rogue's stats
-     * @return String containing his stats
+     * @return String : containing his stats
      */
     public String toString(){
         return setColor() +this.getClass().getSimpleName() + " |  " + super.toString() + " |  dodge: " + this.dodge + " |  critical: " + this.critical + super.setColor();
@@ -121,9 +121,9 @@ public class Rogue extends Characters{
 
     /**
      * display the fight conduct
-     * @param C1    character who inflict damage
-     * @param C2    character who received damage
-     * @return      String containing the fight conduct
+     * @param C1    Characters : character who inflict damage
+     * @param C2    Characters : character who received damage
+     * @return      String : containing the fight conduct
      */
     public String displayFight(Characters C1, Characters C2, int turn){
         int damageDone = C2.hurt(C2.calculateDamage(C1.totalDamage(turn)));
@@ -139,7 +139,7 @@ public class Rogue extends Characters{
 
     /**
      * display character's class
-     * @return String containing " the Rogue"
+     * @return String : containing " the Rogue"
      */
     public String displayClass(){
         return " the " + this.getClass().getSimpleName();
@@ -148,7 +148,7 @@ public class Rogue extends Characters{
 
     /**
      * using to set text color
-     * @return String containing the color wanted
+     * @return String : containing the color wanted
      */
     public String setColor(){
         return "\033[32m";

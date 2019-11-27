@@ -19,10 +19,10 @@ public class Main {
 
         /**
          * while we don't want to quit, we check the action wanted by the user
-         * @param actions           stock the action wanted by the user
-         * @param isExit            check if the user want to quit
-         * @param id                character's id , use to show his stat
-         * @param listCharacters    usable characters list
+         * @param actions           String : stock the action wanted by the user
+         * @param isExit            boolean : check if the user want to quit
+         * @param id                int : character's id , use to show his stat
+         * @param listCharacters    ArrayList : usable characters list
          */
         do {
             System.out.println("\nwhat do you want to do now?\n(help to have the commands list)");
