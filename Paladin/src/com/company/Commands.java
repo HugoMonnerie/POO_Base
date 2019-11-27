@@ -203,15 +203,15 @@ public class Commands {
         int turn = 0;
 
         if (C1.getInitiative() > C2.getInitiative()) {
-            while (C1.getHp() > 0 || C2.getHp() > 0) {
+            while (C1.getHp() > 0 && C2.getHp() > 0) {
                 turn++;
                 System.out.println( "\n\033[34m-- turn "+ turn +" --\033[0m\n");
                 C2.hurt(C1.getPower());
-                System.out.println(C1.getName()+" inflict "+C1.getPower()+" to "+ C2.getName()+", have "+C2.getHp()+" HP ");
+                System.out.println("\033[0;1m"+C1.getName()+"\033[0m inflict "+C1.getPower()+" to \033[0;1m"+ C2.getName()+"\033[0m, have "+C2.getHp()+" HP ");
 
-                if (C1.getHp() > 0 || C2.getHp() > 0){
+                if (C1.getHp() > 0 && C2.getHp() > 0){
                     C1.hurt(C2.getPower());
-                    System.out.println(C2.getName()+" inflict "+C2.getPower()+" to "+ C1.getName()+", have "+C1.getHp()+" HP ");
+                    System.out.println("\033[0;1m"+C2.getName()+"\033[0m inflict "+C2.getPower()+" to \033[0;1m"+ C1.getName()+"\033[0m, have "+C1.getHp()+" HP ");
                 }
                 else {
                     break;
@@ -219,15 +219,15 @@ public class Commands {
             }
         }
         else {
-            while (C1.getHp() > 0 || C2.getHp() > 0) {
+            while (C1.getHp() > 0 && C2.getHp() > 0) {
                 turn++;
                 System.out.println( "\n\033[34m-- turn "+ turn +" --\033[0m\n");
                 C1.hurt(C2.getPower());
-                System.out.println(C2.getName()+" inflict "+C2.getPower()+" to "+ C1.getName()+", have "+C1.getHp()+" HP ");
+                System.out.println("\033[0;1m"+C2.getName()+"\033[0m inflict "+C2.getPower()+" to \033[0;1m"+ C1.getName()+"\033[0m, have "+C1.getHp()+" HP ");
 
-                if (C1.getHp() > 0 || C2.getHp() > 0){
+                if (C1.getHp() > 0 && C2.getHp() > 0){
                     C2.hurt(C2.getPower());
-                    System.out.println(C1.getName()+" inflict "+C1.getPower()+" to "+ C2.getName()+", have "+C2.getHp()+" HP ");
+                    System.out.println("\033[0;1m"+C1.getName()+"\033[0m inflict "+C1.getPower()+" to \033[0;1m"+ C2.getName()+"\033[0m, have "+C2.getHp()+" HP ");
                 }
                 else {
                     break;

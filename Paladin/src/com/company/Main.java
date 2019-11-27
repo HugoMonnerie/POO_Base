@@ -83,19 +83,19 @@ public class Main {
                 System.out.println("\n\033[31mFinish\033[0m\n");
                 action=sc.nextLine();
             }
-            else if (action.equals("defautWarrior")){
+            else if (action.equals("C.war1")){
                 Characters war1 = new Warrior("Chrome", 200, 15, 3, 10);
                 listCharacters.add(war1);
                 System.out.println("Fighter create !");
                 System.out.println(war1);
             }
-            else if(action.equals("defautWizard")){
+            else if(action.equals("C.wiz1")){
                 Characters wiz1 = new Wizard("Hugo",100, 10, 5, 40);
                 listCharacters.add(wiz1);
                 System.out.println("Fighter create !");
                 System.out.println(wiz1);
             }
-            else if(action.equals("defautRogue")){
+            else if(action.equals("C.rog1")){
                 Characters rog1 = new Rogue("Houssam",100, 15, 8, 20, 10);
                 listCharacters.add(rog1);
                 System.out.println("Fighter create !");
