@@ -104,6 +104,10 @@ public class Main {
                         try {
                             System.out.println("fighter's id 2:");
                             id2 = sc.nextInt();
+                            while (id1==id2){
+                                System.out.println(listCharacters.get(id1).getName() + " can't fight himself. enter an other id:");
+                                id2 = sc.nextInt();
+                            }
                             Commands.fight(listCharacters, id1, id2);
                         } catch (Exception e) {
                             System.out.println("you don't have entered a valid id");

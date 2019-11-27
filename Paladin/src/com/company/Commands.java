@@ -290,7 +290,7 @@ public class Commands {
 
         while ((C1.getHp()>0 && C2.getHp()>0 ) || isAlive){
             turn++;
-            System.out.print("\n -- turn " + turn + " --\n");
+            System.out.print("\n\033[35m -- turn " + turn + " --\n\033[0m");
 
             System.out.println(C2.displayFight(C1, C2, turn));
             isAlive=C2.isDead(C2, C1, isAlive);
