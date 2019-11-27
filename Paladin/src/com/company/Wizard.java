@@ -70,7 +70,7 @@ public class Wizard extends Characters{
      */
     public String displayFight(Characters C1, Characters C2, int turn){
         int damageDone =C2.hurt(C2.calculateDamage(C1.totalDamage(turn)));
-        return C1.getName() + " inflict " + damageDone + " damage to " +C2.getName() + ". he have "  + C2.getHp() + " hp remaining";
+        return C1.setColor() +C1.getName() + " inflict " + damageDone + " damage to " +C2.getName() + ". he have "  + C2.getHp() + " hp remaining";
 
     }
 
@@ -89,6 +89,6 @@ public class Wizard extends Characters{
      * @return String containing the color wanted
      */
     public String setColor(){
-        return"\033[34m";
+        return "\033[34m";
     }
 }

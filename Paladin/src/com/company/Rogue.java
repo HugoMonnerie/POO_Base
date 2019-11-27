@@ -128,10 +128,9 @@ public class Rogue extends Characters{
     public String displayFight(Characters C1, Characters C2, int turn){
         int damageDone = C2.hurt(C2.calculateDamage(C1.totalDamage(turn)));
         if (damageDone==0){
-            return C2.getName()+ " dodge the attack from " +C1.getName() + ". " + C1.getName() + " inflict " + damageDone + " damage to " +C2.getName() + ", he have "  + C2.getHp() + " hp remaining";
+            return C2.setColor() +C2.getName()+ "\033[0m dodge the attack from " + C1.setColor() + C1.getName() + "\033[0m. " + C1.setColor() + C1.getName() + "\033[0m inflict " + damageDone + " damage to " + C2.setColor() +C2.getName() + "\033[0m, he have "  + C2.getHp() + " hp remaining";
         }
-        return C1.getName() + " inflict " + damageDone + " damage to " +C2.getName() + ". he have "  + C2.getHp() + " hp remaining";
-
+        return C1.setColor() +C1.getName() + "\033[0m inflict " + damageDone + " damage to " + C2.setColor() +C2.getName() + "\033[0m. he have "  + C2.getHp() + " hp remaining";
     }
 
 
@@ -149,7 +148,7 @@ public class Rogue extends Characters{
      * @return String containing the color wanted
      */
     public String setColor(){
-        return"\033[32m";
+        return "\033[32m";
     }
 
 }
