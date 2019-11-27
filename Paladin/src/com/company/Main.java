@@ -62,7 +62,6 @@ public class Main {
                     System.out.println("you don't have entered a valid id");
                 }
                 action=sc.nextLine();
-
             }
             else if (action.equals("giveAll") || action.equals("7")) {
                 Commands.giveAll(listCharacters);
@@ -122,6 +121,7 @@ public class Main {
 
                 action=sc.nextLine();
             }
+
             else{
                 System.out.println("this command doesn't exit, these commands are available:");
                 Commands.help();

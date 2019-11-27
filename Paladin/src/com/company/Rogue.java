@@ -130,6 +130,9 @@ public class Rogue extends Characters{
         if (damageDone==0){
             return C2.setColor() +C2.getName()+ "\033[0m dodge the attack from " + C1.setColor() + C1.getName() + "\033[0m. " + C1.setColor() + C1.getName() + "\033[0m inflict " + damageDone + " damage to " + C2.setColor() +C2.getName() + "\033[0m, he have "  + C2.getHp() + " hp remaining";
         }
+        if (C1.doACritical){
+            return C1.setColor() +C1.getName() + "\033[0m inflict " + damageDone + " critical damage to " + C2.setColor() +C2.getName() + "\033[0m. he have "  + C2.getHp() + " hp remaining";
+        }
         return C1.setColor() +C1.getName() + "\033[0m inflict " + damageDone + " damage to " + C2.setColor() +C2.getName() + "\033[0m. he have "  + C2.getHp() + " hp remaining";
     }
 
