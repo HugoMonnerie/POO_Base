@@ -14,7 +14,7 @@ public class Characters {
     //###########################    character getters    ###################################
     //#######################################################################################
     /**
-     * get the name of the character
+     * get the character's name
      * @return int character's name
      */
     public String getName(){
@@ -23,7 +23,7 @@ public class Characters {
 
 
     /**
-     * get the hearth points of the character
+     * get the character's hearth points
      * @return int character's hp
      */
     public int getHp(){
@@ -32,7 +32,7 @@ public class Characters {
 
 
     /**
-     * get the power of the character
+     * get the character's power
      * @return int character's power
      */
     public int getPower(){
@@ -41,7 +41,7 @@ public class Characters {
 
 
     /**
-     * get the initiative of the character
+     * get the character's initiative
      * @return int character's initiative
      */
     public int getInitiative(){
@@ -114,7 +114,7 @@ public class Characters {
     //########################    characters constructors    ################################
     //#######################################################################################
     /**
-     * user's constructor of character
+     * user's constructor of characters
      * @param name          character's name
      * @param hp            character's hp
      * @param power         character's power
@@ -129,7 +129,7 @@ public class Characters {
     }
 
     /**
-     * default constructor character
+     * default constructor characters
      */
     public Characters(){
         this("hugo", 30, 5, 8);

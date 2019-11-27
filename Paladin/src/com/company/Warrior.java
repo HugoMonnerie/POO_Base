@@ -4,7 +4,7 @@ public class Warrior extends Characters {
     private int shield;
 
     /**
-     * constructor of the Warrior
+     * user's constructor of Warriors
      * @param name          Warrior's name
      * @param hp            Warrior's hp
      * @param power         Warrior's power
@@ -18,8 +18,8 @@ public class Warrior extends Characters {
 
 
     /**
-     * get the Warrior's shield
-     * @return shield
+     * get the Warrior's shield value
+     * @return int shield
      */
     public int getShield(){
         return this.shield;
@@ -36,21 +36,9 @@ public class Warrior extends Characters {
 
 
     /**
-     * reduce Warrior's hp
-     * @param damageDone    Warrior's damage taken
-     */
-    /*
-    public void hurt(int damageDone){
-
-        damageDone=calculateDamage(damageDone);
-        super.hurt(damageDone);
-    }
-*/
-
-    /**
      * calculate Warrior's damage taken with his shield
      * @param damageDone    opponent's damage
-     * @return              damage taken
+     * @return              int damage taken
      */
     public int calculateDamage(int damageDone){
         damageDone=damageDone-this.shield;
@@ -60,14 +48,12 @@ public class Warrior extends Characters {
         return damageDone;
     }
 
-//instance
-
 
     /**
      * display the fight conduct
      * @param C1    character who inflict damage
      * @param C2    character who received damage
-     * @return      String containing the conduct
+     * @return      String containing the fight conduct
      */
     public String displayFight(Characters C1, Characters C2, int turn){
         int damageDone = C2.hurt(C2.calculateDamage(C1.totalDamage(turn)));
@@ -75,9 +61,12 @@ public class Warrior extends Characters {
     }
 
 
-
+    /**
+     * display character's class
+     * @return String containing " the Warrior"
+     */
     public String displayClass(){
-        return "the" + this.getClass().getSimpleName();
+        return " the " + this.getClass().getSimpleName();
     }
 
 
