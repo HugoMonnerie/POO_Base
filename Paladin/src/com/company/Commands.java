@@ -8,7 +8,6 @@ public class Commands {
 
     /**
      * print the available commands
-     * @param listCommand       Array containing all commands in class Commands
      */
     public static void help()       //display usable command
     {
@@ -39,10 +38,7 @@ public class Commands {
 
     /**
      * create a character with the parameter added by the user
-     * @param hisName       name choose by the user
-     * @param hisHp         amount of hp choose by the user
-     * @param hisPower      the power choose by the user
-     * @param hisInitiative initiative choose by the user
+     * @param listCharacters        characters list
      */
     static void create(List listCharacters)
     {
@@ -65,6 +61,90 @@ public class Commands {
     }
 
     /**
+     * create a warrior with the parameter added by the user
+     *@param listCharacters        characters list
+     */
+    static void warrior(List listCharacters)
+    {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("what is the name of this character");
+        String hisName = sc.nextLine();
+
+        System.out.println("what is the amount of hp of this character");
+        int hisHp = sc.nextInt();
+
+        System.out.println("what is the power of this character");
+        int hisPower = sc.nextInt();
+
+        System.out.println("what is the initiative of this character");
+        int hisInitiative = sc.nextInt();
+
+        System.out.println("what is the shield of this character");
+        int hisShield = sc.nextInt();
+
+        Characters newFighter = new Warrior(hisName, hisHp, hisPower, hisInitiative, hisShield);
+        listCharacters.add(newFighter);
+    }
+
+    /**
+     * create a wizard with the parameter added by the user
+     *@param listCharacters        characters list
+     */
+    static void wizard(List listCharacters)
+    {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("what is the name of this character");
+        String hisName = sc.nextLine();
+
+        System.out.println("what is the amount of hp of this character");
+        int hisHp = sc.nextInt();
+
+        System.out.println("what is the power of this character");
+        int hisPower = sc.nextInt();
+
+        System.out.println("what is the initiative of this character");
+        int hisInitiative = sc.nextInt();
+
+        System.out.println("what is the magic of this character");
+        int hisMagic = sc.nextInt();
+
+        Characters newFighter = new Wizard(hisName, hisHp, hisPower, hisInitiative, hisMagic);
+        listCharacters.add(newFighter);
+    }
+
+    /**
+     * create a rogue with the parameter added by the user
+     *@param listCharacters        characters list
+     */
+    static void rogue(List listCharacters)
+    {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("what is the name of this character");
+        String hisName = sc.nextLine();
+
+        System.out.println("what is the amount of hp of this character");
+        int hisHp = sc.nextInt();
+
+        System.out.println("what is the power of this character");
+        int hisPower = sc.nextInt();
+
+        System.out.println("what is the initiative of this character");
+        int hisInitiative = sc.nextInt();
+
+        System.out.println("what is the luck of critic of this character (%)");
+        int hisCritic = sc.nextInt();
+
+        System.out.println("what is the luck of dodge of this character (%)");
+        int hisDodge = sc.nextInt();
+
+        Characters newFighter = new Rogue(hisName, hisHp, hisPower, hisInitiative, hisCritic, hisDodge);
+        listCharacters.add(newFighter);
+    }
+
+    /**
      * give the stat of a character select by the user
      * @param listCharacters    usable characters list
      * @param id                character's id
@@ -72,7 +152,7 @@ public class Commands {
     static void stat(List listCharacters, int id){
 
         Characters C = (Characters) listCharacters.get(id);
-        System.out.println("  name: " + C.getName() + " |  hp: " + C.getHp() + " |  power: " + C.getPower() + " |  initiative: "+ C.getInitiative());
+        System.out.println(C);
 
     }
 
@@ -105,13 +185,45 @@ public class Commands {
     }
 
     /**
-     *
-     *
-     *
+     * start fight between 2 character by hid id
+     * @param listCharacters        characters list
+     * @param id1                   id first character
+     * @param id2                   id secondary character
      */
-    static void fight( Characters.C1.hp , Characters.C2.hp , Characters.C1.damageDone , Characters.C2.damageDone)
+
+    static void fight(List listCharacters, int id1, int id2)
     {
-        Characters.hurt(C1);
+        Characters C1 = (Characters) listCharacters.get(id1);
+        Characters C2 = (Characters) listCharacters.get(id2);
+        int turn = 0;
+
+        if (C1.getInitiative() > C2.getInitiative()) {
+            while (C1.getHp() >= 0 || C2.getHp() >= 0) {
+                turn++;
+                System.out.println( "\n-- turn "+ turn +" --\n");
+                C2.hurt(C1.getPower());
+                System.out.println(C1.getName()+" inflict "+C1.getPower()+" to "+ C2.getName()+", have "+C2.getHp()+" HP ");
+
+                if (C1.getHp() >= 0 || C2.getHp() >= 0){
+                    C1.hurt(C2.getPower());
+                    System.out.println(C2.getName()+" inflict "+C2.getPower()+" to "+ C1.getName()+", have "+C1.getHp()+" HP ");
+                }
+            }
+        }
+        else {
+            while (C1.getHp() >= 0 || C2.getHp() >= 0) {
+                turn++;
+                System.out.println( "\n-- turn "+ turn +" --\n");
+                C1.hurt(C2.getPower());
+                System.out.println(C2.getName()+" inflict "+C2.getPower()+" to "+ C1.getName()+", have "+C1.getHp()+" HP ");
+
+                if (C1.getHp() >= 0 || C2.getHp() >= 0){
+                    C2.hurt(C2.getPower());
+                    System.out.println(C1.getName()+" inflict "+C1.getPower()+" to "+ C2.getName()+", have "+C2.getHp()+" HP ");
+                }
+            }
+        }
+
     }
 
 }

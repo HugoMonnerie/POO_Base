@@ -1,7 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7b044b48-7db2-4f4e-b79e-de4c39642bc1" name="Default Changelist" comment="" />
+    <list default="true" id="7b044b48-7db2-4f4e-b79e-de4c39642bc1" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/company/Rogue.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/company/Warrior.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/company/Wizard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Paladin/com/company/Characters.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Paladin/com/company/Characters.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Paladin/com/company/Commands.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Paladin/com/company/Commands.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Paladin/com/company/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Paladin/com/company/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/Characters.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Characters.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/Commands.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Commands.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Main.java" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,8 +27,14 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
   <component name="ProjectId" id="1U6EUXHksVgWxTtPshVmt8T9Kfr" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+  </component>
   <component name="RunDashboard">
     <option name="ruleStates">
       <list>
@@ -58,5 +76,16 @@
       <updated>1574668660426</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

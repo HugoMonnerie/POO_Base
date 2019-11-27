@@ -32,7 +32,25 @@ public class Main {
                 Commands.help();
             }
             else if (action.equals("create")){
-                Commands.create(listCharacters);
+                System.out.println("What is his class ?");
+                System.out.println("0 : caca\n1 : Warrior\n2 : Wizzard\n3 : Rogue");
+
+                if (action.equals("0")){
+                    Commands.create(listCharacters);
+                }
+                else if (action.equals("1")){
+                    Commands.warrior(listCharacters);
+                }
+                else if (action.equals("2")){
+                    Commands.wizard(listCharacters);
+                }
+                else if (action.equals("3")){
+                    Commands.rogue(listCharacters);
+                }
+                else {
+                    System.out.println("This class don't exist");
+                }
+
             }
             else if (action.equals("stat")){
                 System.out.println("enter character's id:");
@@ -52,8 +70,14 @@ public class Main {
             }
             else if (action.equals("fight")){
 
+                System.out.println("enter first character's id");
+                int id1 =sc.nextInt();
+
+                System.out.println("enter secondary character's id");
+                int id2 =sc.nextInt();
+
                 System.out.println("Let the battle begin");
-                Commands.fight();
+                Commands.fight(listCharacters, id1, id2);
 
             }
             else{
