@@ -180,4 +180,13 @@ public class Characters {
         return "";
     }
 
+
+    /**
+     * using to set text color
+     * @return String containing the color wanted
+     */
+    public String setColor(){
+        return"\033[0m";
+    }
+
 }

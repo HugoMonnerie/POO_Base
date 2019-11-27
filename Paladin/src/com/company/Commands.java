@@ -253,7 +253,7 @@ public class Commands {
         for (int i=0; i<listCharacters.size(); i++)
         {
             Characters C = (Characters) listCharacters.get(i);
-            System.out.println("id: " + i + " |   name: " + C.getName());
+            System.out.println( C.setColor() +"id: " + i + " |   name: " + C.getName() +  "\033[0m");
         }
 
         if (listCharacters.size()==0){

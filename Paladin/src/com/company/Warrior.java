@@ -64,7 +64,7 @@ public class Warrior extends Characters {
      * @return   String containing his stats
      */
     public String toString(){
-        return this.getClass().getSimpleName() + " |  " + super.toString() +" |  shield: " + this.shield +"\n";
+        return setColor() + this.getClass().getSimpleName() + " |  " + super.toString() +" |  shield: " + this.shield + super.setColor();
     }
 
 
@@ -88,5 +88,13 @@ public class Warrior extends Characters {
         return " the " + this.getClass().getSimpleName();
     }
 
+
+    /**
+     * using to set text color
+     * @return String containing the color wanted
+     */
+    public String setColor(){
+        return"\033[31m";
+    }
 
 }

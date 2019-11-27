@@ -115,7 +115,7 @@ public class Rogue extends Characters{
      * @return String containing his stats
      */
     public String toString(){
-        return this.getClass().getSimpleName() + " |  " + super.toString() + " |  dodge: " + this.dodge + " |  critical: " + this.critical + "\n";
+        return setColor() +this.getClass().getSimpleName() + " |  " + super.toString() + " |  dodge: " + this.dodge + " |  critical: " + this.critical + super.setColor();
     }
 
 
@@ -141,6 +141,15 @@ public class Rogue extends Characters{
      */
     public String displayClass(){
         return " the " + this.getClass().getSimpleName();
+    }
+
+
+    /**
+     * using to set text color
+     * @return String containing the color wanted
+     */
+    public String setColor(){
+        return"\033[32m";
     }
 
 }
