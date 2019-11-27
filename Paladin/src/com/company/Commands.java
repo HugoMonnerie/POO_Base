@@ -190,16 +190,6 @@ public class Commands {
     //#######################    characters list management    ##############################
     //#######################################################################################
     /**
-     * add a character into the characters list
-     * @param newFighter        the character created
-     * @param listCharacters    characters list
-     */
-    static void addToList(Characters newFighter,List listCharacters){
-        listCharacters.add(newFighter);
-    }
-
-
-    /**
      * delete a character thanks to his id
      * @param listCharacters        characters list
      * @param id                    character's
@@ -253,7 +243,7 @@ public class Commands {
         for (int i=0; i<listCharacters.size(); i++)
         {
             Characters C = (Characters) listCharacters.get(i);
-            System.out.println( C.setColor() +"id: " + i + " |   name: " + C.getName() +  "\033[0m");
+            System.out.println( C.setColor() +"id: " + i + " |   name: " + C.getName() + " |  " + C.getClass().getSimpleName() +  "\033[0m");
         }
 
         if (listCharacters.size()==0){

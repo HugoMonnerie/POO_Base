@@ -31,13 +31,6 @@ public class Characters {
     }
 
 
-    /**
-     * default constructor characters
-     */
-    public Characters(){
-        this("hugo", 30, 5, 8);
-    }
-
 
 
 

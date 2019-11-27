@@ -36,20 +36,20 @@ public class Main {
             }
 
             else if (action.equals("create") || action.equals("2")){
-                Commands.addToList(Commands.create(), listCharacters);
+                listCharacters.add(Commands.create());
             }
             else if (action.equals("createWarrior") || action.equals("3"))
             {
-                Commands.addToList(Commands.createWarrior(), listCharacters);
+                listCharacters.add(Commands.createWarrior());
             }
 
             else if (action.equals("createWizard") || action.equals("4"))
             {
-                Commands.addToList(Commands.createWizard(), listCharacters);
+                listCharacters.add(Commands.createWizard());
             }
             else if (action.equals("createRogue") || action.equals("5"))
             {
-                Commands.addToList(Commands.createRogue(), listCharacters);
+                listCharacters.add(Commands.createRogue());
             }
 
             else if (action.equals("stat") || action.equals("6")){
