@@ -57,7 +57,7 @@ public class Wizard extends Characters{
      * @return String containing his stats
      */
     public String toString(){
-        return super.toString() +" |  intelligence: " + this.intelligence +"\n";
+        return this.getClass().getSimpleName() + " |  " + super.toString() +" |  intelligence: " + this.intelligence +"\n";
     }
 
 

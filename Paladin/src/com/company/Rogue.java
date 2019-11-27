@@ -115,12 +115,11 @@ public class Rogue extends Characters{
      * @return String containing his stats
      */
     public String toString(){
-        return super.toString() + " |  dodge: " + this.dodge + " |  critical: " + this.critical + "\n";
+        return this.getClass().getSimpleName() + " |  " + super.toString() + " |  dodge: " + this.dodge + " |  critical: " + this.critical + "\n";
     }
 
 
     /**
-     *
      * display the fight conduct
      * @param C1    character who inflict damage
      * @param C2    character who received damage

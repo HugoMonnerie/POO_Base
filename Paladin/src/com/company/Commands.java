@@ -56,30 +56,46 @@ public class Commands {
     static Characters create()
     {
         Scanner sc = new Scanner(System.in);
+        int hisHp=30;
+        int hisPower=5;
+        int hisInitiative=5;
 
         System.out.println("what is the character's name?");
         String hisName = sc.nextLine();
 
         System.out.println("what is the character's amount of hp?");
-        int hisHp = sc.nextInt();
-        while (hisHp<=0){
-            System.out.println("is he already dead? enter an amount of hp higher than 0");
+        try {
             hisHp = sc.nextInt();
+            while (hisHp<=0){
+                System.out.println("is he already dead? enter an amount of hp higher than 0");
+                hisHp = sc.nextInt();
+            }
+        } catch (Exception e){
+            System.out.println("you don't have entered a valid value, setting default value");
         }
 
         System.out.println("what is the character's power?");
-        int hisPower = sc.nextInt();
-        while (hisPower<=0){
-            System.out.println("is your character suffering from myopathy? enter a power higher than 0");
+        try {
             hisPower = sc.nextInt();
+            while (hisPower <= 0) {
+                System.out.println("is your character suffering from myopathy? enter a power higher than 0");
+                hisPower = sc.nextInt();
+            }
+        }catch (Exception e){
+            System.out.println("you don't have entered a valid value, setting default value");
         }
 
         System.out.println("what is the character's initiative value?");
-        int hisInitiative = sc.nextInt();
-        while (hisInitiative<=0){
-            System.out.println("even a snail should be faster than this. enter an initiative higher than 0");
+        try {
             hisInitiative = sc.nextInt();
+            while (hisInitiative <= 0) {
+                System.out.println("even a snail should be faster than this. enter an initiative higher than 0");
+                hisInitiative = sc.nextInt();
+            }
+        } catch (Exception e){
+            System.out.println("you don't have entered a valid value, setting default value");
         }
+
 
         return new Characters(hisName, hisHp, hisPower, hisInitiative);
     }
@@ -92,13 +108,19 @@ public class Commands {
     static Characters createWarrior(){
         Characters C =create();
         Scanner sc = new Scanner(System.in);
+        int hisShield=2;
 
         System.out.println("what is the character's shield value?");
-        int hisShield = sc.nextInt();
-        while (hisShield<=0){
-            System.out.println("even the worst shield should be more efficient than this. enter a shield higher than 0");
+        try {
             hisShield = sc.nextInt();
+            while (hisShield <= 0) {
+                System.out.println("even the worst shield should be more efficient than this. enter a shield higher than 0");
+                hisShield = sc.nextInt();
+            }
+        } catch (Exception e) {
+            System.out.println("you don't have entered a valid value, setting default value");
         }
+
         return new Warrior(C.getName(), C.getHp(), C.getPower(), C.getInitiative(), hisShield);
     }
 
@@ -110,12 +132,17 @@ public class Commands {
     static Characters createWizard(){
         Characters C =create();
         Scanner sc = new Scanner(System.in);
+        int hisIntelligence=10;
 
         System.out.println("what is the character's intelligence value?");
-        int hisIntelligence = sc.nextInt();
-        while (hisIntelligence<=0){
-            System.out.println("even the worst wizard should have more intelligence than this. enter an intelligence higher than 0");
+        try {
             hisIntelligence = sc.nextInt();
+            while (hisIntelligence <= 0) {
+                System.out.println("even the worst wizard should have more intelligence than this. enter an intelligence higher than 0");
+                hisIntelligence = sc.nextInt();
+            }
+        } catch (Exception e) {
+            System.out.println("you don't have entered a valid value, setting default value");
         }
         return new Wizard(C.getName(), C.getHp(), C.getPower(), C.getInitiative(), hisIntelligence);
     }
@@ -127,20 +154,31 @@ public class Commands {
     static Characters createRogue(){
         Characters C =create();
         Scanner sc = new Scanner(System.in);
+        int hisDodge=5;
+        int hisCritical=5;
 
         System.out.println("what is the character's dodge value?");
-        int hisDodge = sc.nextInt();
-        while (hisDodge<=0){
-            System.out.println("your rogue should have a chance to dodge attack. enter a dodge value higher than 0");
+        try {
             hisDodge = sc.nextInt();
+            while (hisDodge <= 0) {
+                System.out.println("your rogue should have a chance to dodge attack. enter a dodge value higher than 0");
+                hisDodge = sc.nextInt();
+            }
+        }catch (Exception e) {
+            System.out.println("you don't have entered a valid value, setting default value");
         }
 
         System.out.println("what is the character's critical value?");
-        int hisCritical = sc.nextInt();
-        while (hisCritical<=0){
-            System.out.println("your rogue should have a chance to do critical attack. enter a critical value higher than 0");
+        try {
             hisCritical = sc.nextInt();
+            while (hisCritical <= 0) {
+                System.out.println("your rogue should have a chance to do critical attack. enter a critical value higher than 0");
+                hisCritical = sc.nextInt();
+            }
+        }catch (Exception e){
+            System.out.println("you don't have entered a valid value, setting default value");
         }
+
 
         return new Rogue(C.getName(), C.getHp(), C.getPower(), C.getInitiative(), hisDodge, hisCritical);
     }

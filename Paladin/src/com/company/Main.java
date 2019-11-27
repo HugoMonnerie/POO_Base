@@ -54,9 +54,15 @@ public class Main {
 
             else if (action.equals("stat") || action.equals("6")){
                 System.out.println("enter character's id:");
-                id =sc.nextInt();
-                Commands.stat(listCharacters, id);
+                try{
+                    id =sc.nextInt();
+                    Commands.stat(listCharacters, id);
+
+                }catch (Exception e){
+                    System.out.println("you don't have entered a valid id");
+                }
                 action=sc.nextLine();
+
             }
             else if (action.equals("giveAll") || action.equals("7")) {
                 Commands.giveAll(listCharacters);
@@ -67,13 +73,17 @@ public class Main {
                 if (!listCharacters.isEmpty()) {
 
                     System.out.println("enter character's id you want to delete:");
-                    id = sc.nextInt();
-                    if (listCharacters.size()>id-1) {
-                        Commands.delete(listCharacters, id);
+                    try {
+                        id = sc.nextInt();
+                        if (listCharacters.size() > id - 1) {
+                            Commands.delete(listCharacters, id);
 
-                    }
-                    else{
-                        System.out.println("there nobody with this id");
+                        } else {
+                            System.out.println("there is nobody with this id");
+
+                        }
+                    }catch (Exception e){
+                        System.out.println("you don't have entered a valid id");
                     }
                     action=sc.nextLine();
                 }
@@ -86,10 +96,26 @@ public class Main {
             else if(action.equals("fight") || action.equals("9"))
             {
                 System.out.println("enter fighter's id \nfighter's id 1:");
-                id1 =sc.nextInt();
-                System.out.println("fighter's id 2:");
-                id2 =sc.nextInt();
-                Commands.fight(listCharacters, id1, id2);
+                try {
+
+                    id1 = sc.nextInt();
+                    if (listCharacters.size()>id1-1) {
+
+                        try {
+                            System.out.println("fighter's id 2:");
+                            id2 = sc.nextInt();
+                            Commands.fight(listCharacters, id1, id2);
+                        } catch (Exception e) {
+                            System.out.println("you don't have entered a valid id");
+                        }
+                    }
+                    else{
+                        System.out.println("there is nobody with this id");
+                    }
+                } catch (Exception e){
+                    System.out.println("you don't have entered a valid id");
+                }
+
                 action=sc.nextLine();
             }
             else{
