@@ -10,25 +10,12 @@ public class Commands {
     //#######################################################################################
     /**
      * print the available commands
+     * @param listCommand List : list of the available commands
      */
-    public static void help()       //display usable command
+    public static void help(List listCommand)       //display usable command
     {
-        ArrayList listCommand = new ArrayList();
-
-        listCommand.add("exit");
-        listCommand.add("help");
-        listCommand.add("create");
-        listCommand.add("createWarrior");
-        listCommand.add("createWizard");
-        listCommand.add("createRogue");
-        listCommand.add("stat");
-        listCommand.add("giveAll");
-        listCommand.add("delete");
-        listCommand.add("fight");
-
         for (int i=0; i<listCommand.size(); i++) {
             System.out.println("command " + i + ": " + listCommand.get(i));
-            //System.out.println("available commands : help / exit / delete" );
         }
     }
 
@@ -105,7 +92,7 @@ public class Commands {
      * create a Warrior character
      * @return  Warrior : the new Fighter
      */
-    static Characters createWarrior(){
+    static Warrior createWarrior(){
         Characters C =create();
         Scanner sc = new Scanner(System.in);
         int hisShield=2;
@@ -129,7 +116,7 @@ public class Commands {
      * create a Wizard character
      * @return  Wizard : the new Fighter
      */
-    static Characters createWizard(){
+    static Wizard createWizard(){
         Characters C =create();
         Scanner sc = new Scanner(System.in);
         int hisIntelligence=10;
@@ -151,7 +138,7 @@ public class Commands {
      * create a Rogue character
      * @return  Rogue : the new fighter
      */
-    static Characters createRogue(){
+    static Rogue createRogue(){
         Characters C =create();
         Scanner sc = new Scanner(System.in);
         int hisDodge=5;
@@ -182,6 +169,31 @@ public class Commands {
 
         return new Rogue(C.getName(), C.getHp(), C.getPower(), C.getInitiative(), hisDodge, hisCritical);
     }
+
+
+    /**
+     * create a Paladin character
+     * @return  Paladin : the new Fighter
+     */
+    static Paladin createPaladin(){
+        Warrior C =createWarrior();
+        Scanner sc = new Scanner(System.in);
+        int hisMana=5;
+
+        System.out.println("what is the character's mana value?");
+        try {
+            hisMana = sc.nextInt();
+            while (hisMana <= 0) {
+                System.out.println("even the worst paladin should have more mana than this. enter a mana value higher than 0");
+                hisMana = sc.nextInt();
+            }
+        } catch (Exception e) {
+            System.out.println("you don't have entered a valid value, setting default value");
+        }
+
+        return new Paladin(C.getName(), C.getHp(), C.getPower(), C.getInitiative(), C.getShield(), hisMana);
+    }
+
 
 
 

@@ -12,6 +12,20 @@ public class Main {
         int id;
         int id1;
         int id2;
+        ArrayList listCommand = new ArrayList();
+
+        //liste of commands
+        listCommand.add("exit");
+        listCommand.add("help");
+        listCommand.add("create");
+        listCommand.add("create_warrior");
+        listCommand.add("create_wizard");
+        listCommand.add("create_rogue");
+        listCommand.add("create_paladin");
+        listCommand.add("stat");
+        listCommand.add("give_all");
+        listCommand.add("delete");
+        listCommand.add("fight");
 
 
         System.out.println("Application has started");
@@ -28,31 +42,35 @@ public class Main {
             System.out.println("\nwhat do you want to do now?\n(help to have the commands list)");
             action=sc.nextLine().toLowerCase();
 
-            if (action.equals("exit") || action.equals("0")){
+            if (action.equals(listCommand.get(0)) || action.equals("0")){
                 isExit = Commands.exit();
             }
-            else if (action.equals("help") || action.equals("1")){
-                Commands.help();
+            else if (action.equals(listCommand.get(1)) || action.equals("1")){
+                Commands.help(listCommand);
             }
 
-            else if (action.equals("create") || action.equals("2")){
+            else if (action.equals(listCommand.get(2)) || action.equals("2")){
                 listCharacters.add(Commands.create());
             }
-            else if (action.equals("createwarrior") || action.equals("3"))
+            else if (action.equals(listCommand.get(3)) || action.equals("3"))
             {
                 listCharacters.add(Commands.createWarrior());
             }
 
-            else if (action.equals("createwizard") || action.equals("4"))
+            else if (action.equals(listCommand.get(4)) || action.equals("4"))
             {
                 listCharacters.add(Commands.createWizard());
             }
-            else if (action.equals("createwogue") || action.equals("5"))
+            else if (action.equals(listCommand.get(5)) || action.equals("5"))
             {
                 listCharacters.add(Commands.createRogue());
             }
+            else if (action.equals(listCommand.get(6)) || action.equals("6"))
+            {
+                listCharacters.add(Commands.createPaladin());
+            }
 
-            else if (action.equals("stat") || action.equals("6")){
+            else if (action.equals(listCommand.get(7)) || action.equals("7")){
                 System.out.println("enter character's id:");
                 try{
                     id =sc.nextInt();
@@ -63,11 +81,11 @@ public class Main {
                 }
                 action=sc.nextLine();
             }
-            else if (action.equals("giveall") || action.equals("7")) {
+            else if (action.equals(listCommand.get(8)) || action.equals("8")) {
                 Commands.giveAll(listCharacters);
             }
 
-            else if (action.equals("delete") || action.equals("8"))
+            else if (action.equals(listCommand.get(9)) || action.equals("9"))
             {
                 if (!listCharacters.isEmpty()) {
 
@@ -92,7 +110,7 @@ public class Main {
                 }
             }
 
-            else if(action.equals("fight") || action.equals("9"))
+            else if(action.equals(listCommand.get(10)) || action.equals("10"))
             {
                 if (listCharacters.size()>=2) {
                     System.out.println("enter fighter's id \nfighter's id 1:");
@@ -127,7 +145,7 @@ public class Main {
 
             else{
                 System.out.println("this command doesn't exit, these commands are available:");
-                Commands.help();
+                Commands.help(listCommand);
             }
 
         } while (!isExit);

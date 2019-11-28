@@ -56,6 +56,15 @@ public class Characters {
 
 
     /**
+     * get the character's max hearth points
+     * @return int : character's max hp
+     */
+    public int getMaxHp(){
+        return this.maxHp;
+    }
+
+
+    /**
      * get the character's power
      * @return int : character's power
      */
