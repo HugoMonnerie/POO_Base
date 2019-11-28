@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 public class Main {
 
+
     public static void main(String[] args) {
         boolean isExit = false;
         String action;
@@ -14,7 +15,7 @@ public class Main {
         int id2;
         ArrayList listCommand = new ArrayList();
 
-        //liste of commands
+        //command's list
         listCommand.add("exit");
         listCommand.add("help");
         listCommand.add("create");

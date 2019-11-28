@@ -15,11 +15,11 @@ public class Paladin extends Warrior {
     /**
      * user's constructor of Paladin
      * @param name          String : Paladin's name
-     * @param hp            int : Paladin's hp
-     * @param power         int : Paladin's power
-     * @param initiative    int : Paladin's initiative
-     * @param shield        int : Paladin's shield
-     * @param mana          int : Paladin's mana
+     * @param hp            int : Paladin's hp, when they pass trough 0, the character die
+     * @param power         int : Paladin's power, representing the damage done by the character
+     * @param initiative    int : Paladin's initiative, determinate which character attack in first place
+     * @param shield        int : Paladin's shield, that reduce damage received by the chosen value
+     * @param mana          int : Paladin's mana, more he have, more he could use heal
      */
     public Paladin(String name, int hp, int power, int initiative , int shield, int mana){
         super(name, hp, power, initiative, shield);
@@ -34,8 +34,8 @@ public class Paladin extends Warrior {
     //#############################    Paladin getter    ####################################
     //#######################################################################################
     /**
-     * get the Paladin's shield value
-     * @return int : shield
+     * get the Paladin's mana value, representing how much time paladin could heal himself
+     * @return int : mana
      */
     public int getMana(){
         return this.mana;
@@ -48,7 +48,7 @@ public class Paladin extends Warrior {
     //##############################    fight Area    #######################################
     //#######################################################################################
     /**
-     * calculate Paladin's damage taken with his shield, and the possibility to heal
+     * calculate Paladin's damage taken with his shield, the possibility to heal and how much hp he can restore
      * @param damageDone    int : opponent's damage
      * @return              int : damage taken
      */
@@ -57,17 +57,17 @@ public class Paladin extends Warrior {
         damageDone =super.calculateDamage(damageDone);
 
         if (rand.nextInt(4)==1 && this.mana>0) {
-            this.healValue = 2*(this.maxMana-this.mana)+rand.nextInt(4*this.mana);
+            this.healValue = 2*(this.maxMana-this.mana)+rand.nextInt(4*this.mana)%this.maxMana*3;
 
             if (this.getHp()<=this.getMaxHp()){
 
                 if (this.healValue+this.getHp()>this.getMaxHp()){
                     this.healValue=this.getMaxHp()-this.getHp();
                 }
-                super.hurt(-this.healValue);
-                this.isHealing=true;
+                super.hpVar(-this.healValue);
                 if (this.getHp()!=this.getMaxHp()) {
                     this.mana--;
+                    this.isHealing=true;
                 }
 
             }
@@ -105,14 +105,14 @@ public class Paladin extends Warrior {
 
 
     /**
-     * display the fight conduct
+     * display the fight conduct. special message when Paladin is healing
      * @param C1    Characters : character who inflict damage
      * @param C2    Characters : character who received damage
      * @param turn  int : current turn
      * @return      String : containing the conduct
      */
     public String displayFight(Characters C1, Characters C2, int turn){
-        int damageDone =C2.hurt(C2.calculateDamage(C1.totalDamage(turn)));
+        int damageDone =C2.hpVar(C2.calculateDamage(C1.totalDamage(turn)));
 
         if (this.isHealing){
             System.out.println(C2.setColor() + C2.getName() + "\033[0m heal himself " + this.healValue + " hp.");

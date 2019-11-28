@@ -37,7 +37,7 @@ public class Commands {
     //###########################    characters editor    ###################################
     //#######################################################################################
     /**
-     * create a common character with the parameter added by the user
+     * create a common character with the parameter added by the user : name, hp, power, initiative
      * @return  Characters : the new Fighter
      */
     static Characters create()
@@ -211,20 +211,20 @@ public class Commands {
         Scanner sc = new Scanner(System.in);
 
         Characters C = (Characters) listCharacters.get(id);
-        System.out.println("are you sure you want to delete "+ C.getName() + "?");
+        System.out.println("are you sure you want to delete "+ C.getName() + C.displayClass() + "?");
 
         String confirm = sc.nextLine().toLowerCase();
 
         if (confirm.equals("no"))
         {
-            System.out.println(C.getName()+ C.displayClass() + " is grateful");
+            System.out.println(C.setColor() + C.getName()+ C.displayClass() + "\033[0m is grateful");
         }
         else if (confirm.equals("yes")){
-            System.out.println(C.getName() + C.displayClass() + " walk far away...");
+            System.out.println(C.setColor() + C.getName() + C.displayClass() + "\033[0m walk far away...");
             listCharacters.remove(id);
         }
         else{
-            System.out.println("you don't seem sure, "+  C.getName()+ C.displayClass() + " stay here");
+            System.out.println("you don't seem sure, "+  C.setColor() + C.getName()+ C.displayClass() + "\033[0m stay here");
         }
     }
 
@@ -235,7 +235,7 @@ public class Commands {
     //###########################    characters getter    ###################################
     //#######################################################################################
     /**
-     * give the stat of a character select by the user
+     * give the stats of a character select by the user
      * @param listCharacters    ArrayList : usable characters list
      * @param id                int : character's id
      */
@@ -298,13 +298,13 @@ public class Commands {
             System.out.print("\n\033[35m -- turn " + turn + " --\n\033[0m");
 
             System.out.println(C2.displayFight(C1, C2, turn));
-            isAlive=C2.isDead(C2, C1, isAlive);
+            isAlive=C2.isDead(C2, C1);
 
             if (!isAlive){
                 break;
             }
             System.out.println(C1.displayFight(C2, C1, turn));
-            isAlive=C1.isDead(C1, C2, isAlive);
+            isAlive=C1.isDead(C1, C2);
 
         }
         C1.restore();

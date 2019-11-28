@@ -15,16 +15,24 @@ public class Rogue extends Characters{
     /**
      * user's constructor of Rogue
      * @param name          String : Rogue's name
-     * @param hp            int : Rogue's hp
-     * @param power         int : Rogue's power
-     * @param initiative    int : Rogue's initiative
-     * @param dodge         int : Rogue's dodge
-     * @param critical      int : Rogue's critical
+     * @param hp            int : Rogue's hp, when they pass trough 0, the character die
+     * @param power         int : Rogue's power, representing the damage done by the character
+     * @param initiative    int : Rogue's initiative, determinate which character attack in first place
+     * @param dodge         int : Rogue's dodge, higher it is, higher is chance to dodge are increased
+     * @param critical      int : Rogue's critical, higher it is, higher is chance to do a critical are increased
      */
     public Rogue(String name, int hp, int power, int initiative , int dodge ,int critical){
         super(name, hp, power, initiative);
+
+        if (dodge>100){
+            dodge=100;
+        }
         this.dodge=dodge;
         this.initialDodge=dodge;
+
+        if (critical>100){
+            critical=100;
+        }
         this.critical=critical;
         this.initialCritical=critical;
     }
@@ -67,16 +75,16 @@ public class Rogue extends Characters{
 
 
     /**
-     * calculate the total damage done by a Rogue with his critical skill
+     * calculate the total damage done by a Rogue, with his possibility to inflict critical damage
      * @param turn  int : number of the current turn
      * @return      int : the damageDone
      */
     public int totalDamage(int turn){
         Random rand = new Random();
-        this.critical = this.critical + rand.nextInt(2) * this.initialCritical;
+        this.critical = 1 +this.critical + rand.nextInt(2) * this.initialCritical;
 
-        if ((this.critical>100) && !doACritical){   //&& this.tourCritical<tour-1
-            this.critical=this.initialCritical%20;
+        if ((this.critical>100) && !doACritical){
+            this.critical=this.initialCritical-Math.round(this.initialCritical/3);
             this.doACritical=true;
             return this.getPower()*2;
         }
@@ -87,16 +95,16 @@ public class Rogue extends Characters{
 
 
     /**
-     * calculate Rogue's damage taken with his dodging skill
+     * calculate Rogue's damage taken, with his possibility to dodge
      * @param damageDone    int : opponent's damage
      * @return              int : damage taken
      */
     public int calculateDamage(int damageDone){
         Random rand = new Random();
-        this.dodge=this.dodge+ rand.nextInt(2 )* this.initialDodge;
+        this.dodge = 1 + this.dodge+ rand.nextInt(2 )* this.initialDodge;
 
         if (this.dodge>100){
-            this.dodge=this.initialDodge%20;
+            this.dodge=this.initialDodge-Math.round(this.initialDodge/3);
             return 0;
         }
 
@@ -122,10 +130,11 @@ public class Rogue extends Characters{
      * display the fight conduct
      * @param C1    Characters : character who inflict damage
      * @param C2    Characters : character who received damage
+     * @param turn  int : current turn
      * @return      String : containing the fight conduct
      */
     public String displayFight(Characters C1, Characters C2, int turn){
-        int damageDone = C2.hurt(C2.calculateDamage(C1.totalDamage(turn)));
+        int damageDone = C2.hpVar(C2.calculateDamage(C1.totalDamage(turn)));
 
         if (damageDone==0){
             return C2.setColor() +C2.getName()+ "\033[0m dodge the attack from " + C1.setColor() + C1.getName() + "\033[0m. " + C1.setColor() + C1.getName() + "\033[0m inflict " + damageDone + " damage to " + C2.setColor() +C2.getName() + "\033[0m, he have "  + C2.getHp() + " hp remaining";

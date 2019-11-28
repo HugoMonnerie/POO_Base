@@ -10,10 +10,10 @@ public class Wizard extends Characters{
     /**
      * user's constructor of Wizards
      * @param name          String : Wizard's name
-     * @param hp            int : Wizard's hp
-     * @param power         int : Wizard's power
-     * @param initiative    int : Wizard's initiative
-     * @param intelligence  int : Wizard's intelligence
+     * @param hp            int : Wizard's hp, when they pass trough 0, the character die
+     * @param power         int : Wizard's power, representing the damage done by the character
+     * @param initiative    int : Wizard's initiative, determinate which character attack in first place
+     * @param intelligence  int : Wizard's intelligence, representing a bonus damage reducing when turn value increased
      */
     public Wizard(String name, int hp, int power, int initiative , int intelligence){
         super(name, hp, power, initiative);
@@ -38,7 +38,7 @@ public class Wizard extends Characters{
     //##############################    fight Area    #######################################
     //#######################################################################################
     /**
-     * calculate the total damage done by a Wizard
+     * calculate the total damage done by a Wizard, with his bonus magic damage
      * @param turn  int : number of the current turn
      * @return      int : the damageDone
      */
@@ -62,10 +62,10 @@ public class Wizard extends Characters{
 
 
     /**
-     *
      * display the fight conduct
      * @param C1    Characters : character who inflict damage
      * @param C2    Characters : character who received damage
+     * @param turn  int : current turn
      * @return      String : containing the fight conduct
      */
     public String displayFight(Characters C1, Characters C2, int turn){
