@@ -6,13 +6,14 @@ public class Rogue extends Characters{
 
     private int critic;
     private int dodge;
-    private boolean criticPrec = true;
+    private boolean criticPrec = false;
 
     /**
      * get the critic of the character
      * @return character's critic
      */
     public int getCritic(){
+
         return this.critic;
     }
 

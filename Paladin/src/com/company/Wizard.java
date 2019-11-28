@@ -3,6 +3,7 @@ package com.company;
 public class Wizard extends Characters{
 
     private int magic;
+    public int magicBase;
 
     /**
      * get the magic of the character
@@ -32,7 +33,8 @@ public class Wizard extends Characters{
      */
     public Wizard(String name, int hp, int power, int initiative, int magic){
         super(name, hp, power, initiative);
-        this.magic=magic;
+        this.magic=2*magic;
+        this.magicBase=magic;
     }
 
     /**

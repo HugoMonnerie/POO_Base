@@ -9,6 +9,7 @@ public class Warrior extends Characters {
      * @return character's shield
      */
     public int getShield(){
+
         return this.shield;
     }
 

@@ -76,11 +76,8 @@ public class Main {
                 System.out.println("enter secondary character's id");
                 int id2 =sc.nextInt();
 
-                System.out.println("\n\033[31mLet the battle begin\033[0m");
-
                 Commands.fight(listCharacters, id1, id2);
 
-                System.out.println("\n\033[31mFinish\033[0m\n");
                 action=sc.nextLine();
             }
             else if (action.equals("C.war1")){

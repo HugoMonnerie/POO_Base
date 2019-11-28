@@ -203,15 +203,18 @@ public class Commands {
         int turn = 0;
 
         if (C1.getInitiative() > C2.getInitiative()) {
+            System.out.println("\n\033[31mLet the battle begin\033[0m");
             while (C1.getHp() > 0 && C2.getHp() > 0) {
                 turn++;
                 System.out.println( "\n\033[34m-- turn "+ turn +" --\033[0m\n");
+                int HPprec=C2.getHp();
                 C2.hurt(C1.getPower());
-                System.out.println("\033[0;1m"+C1.getName()+"\033[0m inflict "+C1.getPower()+" to \033[0;1m"+ C2.getName()+"\033[0m, have "+C2.getHp()+" HP ");
+                System.out.println(C1.getName()+" inflict "+(HPprec-C2.getHp())+" to "+C2.getName()+"\n"+C2.getName()+" have "+C2.getHp()+" HP ");
 
                 if (C1.getHp() > 0 && C2.getHp() > 0){
+                    HPprec=C1.getHp();
                     C1.hurt(C2.getPower());
-                    System.out.println("\033[0;1m"+C2.getName()+"\033[0m inflict "+C2.getPower()+" to \033[0;1m"+ C1.getName()+"\033[0m, have "+C1.getHp()+" HP ");
+                    System.out.println(C2.getName()+" inflict "+(HPprec-C1.getHp())+" to "+C1.getName()+"\n"+C1.getName()+" have "+C1.getHp()+" HP ");
                 }
                 else {
                     break;
@@ -222,19 +225,32 @@ public class Commands {
             while (C1.getHp() > 0 && C2.getHp() > 0) {
                 turn++;
                 System.out.println( "\n\033[34m-- turn "+ turn +" --\033[0m\n");
+                int HPprec=C1.getHp();
                 C1.hurt(C2.getPower());
-                System.out.println("\033[0;1m"+C2.getName()+"\033[0m inflict "+C2.getPower()+" to \033[0;1m"+ C1.getName()+"\033[0m, have "+C1.getHp()+" HP ");
+                System.out.println(C2.getName()+" inflict "+(HPprec-C1.getHp())+" to "+C1.getName()+"\n"+C1.getName()+" have "+C1.getHp()+" HP ");
 
                 if (C1.getHp() > 0 && C2.getHp() > 0){
-                    C2.hurt(C2.getPower());
-                    System.out.println("\033[0;1m"+C1.getName()+"\033[0m inflict "+C1.getPower()+" to \033[0;1m"+ C2.getName()+"\033[0m, have "+C2.getHp()+" HP ");
+                    HPprec=C2.getHp();
+                    C2.hurt(C1.getPower());
+                    System.out.println(C1.getName()+" inflict "+(HPprec-C2.getHp())+" to "+C2.getName()+"\n"+C2.getName()+" have "+C2.getHp()+" HP ");
                 }
                 else {
                     break;
                 }
             }
         }
-
+        System.out.println("\n\033[31mFinish\033[0m\n");
+        if (C1.getHp()>C2.getHp()){
+            System.out.println("The winner is \033[33m"+C1.getName()+"\033[0m !\n");
+        }
+        else if (C2.getHp()>C1.getHp()){
+            System.out.println("The winner is \033[33m"+C2.getName()+"\033[0m !\n");
+        }
+        else {
+            System.out.println("Draw...\n");
+        }
+        C1.heal();
+        C2.heal();
     }
 
 }

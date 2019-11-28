@@ -7,6 +7,7 @@ public class Characters {
     private int hp;
     private int power;
     private int initiative;
+    private int maxHp;
 
     /**
      * get the name of the character
@@ -40,6 +41,10 @@ public class Characters {
         return this.initiative;
     }
 
+    public void heal(){
+        this.hp=this.maxHp;
+    }
+
     /**
      * calcul of damages inflict by the character
      * @return hp remaining after applying damage value
@@ -63,7 +68,7 @@ public class Characters {
         this.hp=hp;
         this.power=power;
         this.initiative=initiative;
-
+        this.maxHp=hp;
     }
 
     /**
