@@ -38,16 +38,16 @@ public class Main {
             else if (action.equals("create") || action.equals("2")){
                 listCharacters.add(Commands.create());
             }
-            else if (action.equals("createWarrior") || action.equals("3"))
+            else if (action.equals("createwarrior") || action.equals("3"))
             {
                 listCharacters.add(Commands.createWarrior());
             }
 
-            else if (action.equals("createWizard") || action.equals("4"))
+            else if (action.equals("createwizard") || action.equals("4"))
             {
                 listCharacters.add(Commands.createWizard());
             }
-            else if (action.equals("createRogue") || action.equals("5"))
+            else if (action.equals("createwogue") || action.equals("5"))
             {
                 listCharacters.add(Commands.createRogue());
             }
@@ -63,7 +63,7 @@ public class Main {
                 }
                 action=sc.nextLine();
             }
-            else if (action.equals("giveAll") || action.equals("7")) {
+            else if (action.equals("giveall") || action.equals("7")) {
                 Commands.giveAll(listCharacters);
             }
 
