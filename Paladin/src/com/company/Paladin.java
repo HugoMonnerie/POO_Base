@@ -96,6 +96,15 @@ public class Paladin extends Warrior {
     //##############################    display Area    #####################################
     //#######################################################################################
     /**
+     * display Paladin's stats
+     * @return   String : containing his stats
+     */
+    public String toString(){
+        return  super.toString() + super.setColor() + " |  mana: " + this.mana + " \033[0m\n";
+    }
+
+
+    /**
      * display the fight conduct
      * @param C1    Characters : character who inflict damage
      * @param C2    Characters : character who received damage
