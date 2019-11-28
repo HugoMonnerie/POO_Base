@@ -56,7 +56,7 @@ public class Paladin extends Warrior {
         Random rand = new Random();
         damageDone =super.calculateDamage(damageDone);
 
-        if (rand.nextInt(4)==1 && this.mana>=0) {
+        if (rand.nextInt(4)==1 && this.mana>0) {
             this.healValue = 2*(this.maxMana-this.mana)+rand.nextInt(4*this.mana);
 
             if (this.getHp()<=this.getMaxHp()){

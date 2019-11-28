@@ -43,7 +43,7 @@ public class Wizard extends Characters{
      * @return      int : the damageDone
      */
     public int totalDamage(int turn){
-        return (int)(this.getPower()+this.intelligence/(Math.pow(2, turn)));
+        return (int)(this.getPower()+this.intelligence/(Math.pow(2, turn-1)));
     }
 
 

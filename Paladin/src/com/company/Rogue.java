@@ -75,9 +75,8 @@ public class Rogue extends Characters{
         Random rand = new Random();
         this.critical = this.critical + rand.nextInt(2) * this.initialCritical;
 
-
-        if (this.critical>100){   //&& this.tourCritical<tour-1
-            this.critical=this.initialCritical/2;
+        if ((this.critical>100) && !doACritical){   //&& this.tourCritical<tour-1
+            this.critical=this.initialCritical%20;
             this.doACritical=true;
             return this.getPower()*2;
         }
@@ -97,7 +96,7 @@ public class Rogue extends Characters{
         this.dodge=this.dodge+ rand.nextInt(2 )* this.initialDodge;
 
         if (this.dodge>100){
-            this.dodge=this.initialDodge/2;
+            this.dodge=this.initialDodge%20;
             return 0;
         }
 
@@ -127,6 +126,7 @@ public class Rogue extends Characters{
      */
     public String displayFight(Characters C1, Characters C2, int turn){
         int damageDone = C2.hurt(C2.calculateDamage(C1.totalDamage(turn)));
+
         if (damageDone==0){
             return C2.setColor() +C2.getName()+ "\033[0m dodge the attack from " + C1.setColor() + C1.getName() + "\033[0m. " + C1.setColor() + C1.getName() + "\033[0m inflict " + damageDone + " damage to " + C2.setColor() +C2.getName() + "\033[0m, he have "  + C2.getHp() + " hp remaining";
         }

@@ -288,6 +288,9 @@ public class Commands {
             C2=CSwitch;
         }
 
+        C1.restore();
+        C2.restore();
+
         System.out.println(C1.getName() + " is too fast for " + C2.getName());
 
         while ((C1.getHp()>0 && C2.getHp()>0 ) || isAlive){
