@@ -5,7 +5,7 @@ public class Main {
     public static void main(String[] args){
         System.out.println("Application has started");
 
-        ArrayList<Archetype> x0 = new ArrayList<Archetype>() ;
+        ArrayList<Archetype> list1 = new ArrayList<Archetype>() ;
 
         Scanner sc1 = new Scanner(System.in);
         System.out.println("What do you want to do ? : ");
