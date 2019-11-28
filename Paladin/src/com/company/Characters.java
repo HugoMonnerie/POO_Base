@@ -87,7 +87,7 @@ public class Characters {
     //#######################################################################################
     /**
      * calculate hp remaining after an action (damage or heal)
-     * @param hpVariation   int : hp variation for a character
+     * @param hpVariation   int : hp variation for a character, if positive then the character loose hp
      * @return              int : the hp variation
      */
     public int hpVar(int hpVariation){
