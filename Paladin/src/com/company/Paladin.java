@@ -57,19 +57,21 @@ public class Paladin extends Warrior {
         damageDone =super.calculateDamage(damageDone);
 
         if (rand.nextInt(4)==1 && this.mana>0) {
-            this.healValue = 2*(this.maxMana-this.mana)+rand.nextInt(4*this.mana)%this.maxMana*3;
+            if(super.getHp()<=super.getMaxHp()/2) {
+                this.healValue = 2 * (this.maxMana - this.mana) + rand.nextInt(4 * this.mana) % this.maxMana * 3;
 
-            if (this.getHp()<=this.getMaxHp()){
+                if (this.getHp() <= this.getMaxHp()) {
 
-                if (this.healValue+this.getHp()>this.getMaxHp()){
-                    this.healValue=this.getMaxHp()-this.getHp();
+                    if (this.healValue + this.getHp() > this.getMaxHp()) {
+                        this.healValue = this.getMaxHp() - this.getHp();
+                    }
+                    super.hpVar(-this.healValue);
+                    if (this.getHp() != this.getMaxHp()) {
+                        this.mana--;
+                        this.isHealing = true;
+                    }
+
                 }
-                super.hpVar(-this.healValue);
-                if (this.getHp()!=this.getMaxHp()) {
-                    this.mana--;
-                    this.isHealing=true;
-                }
-
             }
         }
 
