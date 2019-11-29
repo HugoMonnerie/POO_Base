@@ -32,6 +32,7 @@ public class Main {
         System.out.println("Application has started");
         Scanner sc = new Scanner(System.in);
 
+
         /**
          * while we don't want to quit, we check the action wanted by the user
          * @param actions           String : stock the action wanted by the user

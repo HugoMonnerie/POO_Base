@@ -71,6 +71,7 @@ public class Rogue extends Characters{
         super.restore();
         this.dodge=this.initialDodge;
         this.critical=this.initialCritical;
+        this.doACritical=false;
     }
 
 

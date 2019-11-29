@@ -12,6 +12,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -66,7 +67,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/com/company/Rogue.java</url>
-          <line>123</line>
+          <line>124</line>
           <properties class="com.company.Rogue" method="toString">
             <option name="EMULATED" value="true" />
           </properties>
