@@ -18,8 +18,8 @@ public class Main {
                 str1 = sc1.nextLine();
 
 
-               if (!str1.equals("A") && !str1.equals("B") && !str1.equals("C") &&  !str1.equals("E") && !str1.equals("F") && !str1.equals("G")) {
-                   System.out.println("Commande invalide , Rappel des commandes : ");
+               if (!str1.equals("A") && !str1.equals("B") && !str1.equals("C") && !str1.equals("D") && !str1.equals("E") && !str1.equals("F") && !str1.equals("G")) {
+                   System.out.println("Command not available , reminder about commands : ");
                    CommandsManagement.help();
                }
 
@@ -50,6 +50,11 @@ public class Main {
                    int numeroDeuxiemeCombattant = sc4.nextInt();
                    CommandsManagement.Start_A_Fight(list1, numeroPremiercombattant, numeroDeuxiemeCombattant);
                }
+               
+               if(str1.equals("D")) {
+                   break ;
+                    }
+               
 
                if (str1.equals("F")) {
                    CommandsManagement.showCreatedArchetypes(list1);
