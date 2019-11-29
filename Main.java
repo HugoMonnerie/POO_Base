@@ -10,7 +10,7 @@ public class Main {
             System.out.println("Application has started");
             String str1 = "une chaine de caractère au hasard" ;
 
-            ArrayList<Archetype> x0 = new ArrayList<Archetype>() ;
+            ArrayList<Archetype> list1 = new ArrayList<Archetype>() ;
 
            for(;str1!="D";) {
                Scanner sc1 = new Scanner(System.in);
@@ -27,7 +27,7 @@ public class Main {
                    System.out.println("Numéro du personnage dont vous voulez obtenir les informations ?");
                    Scanner sc2 = new Scanner(System.in);
                    int y1 = sc2.nextInt();
-                   Archetype v1 = x0.get(y1);
+                   Archetype v1 = list1.get(y1);
                    v1.toString();
                }
 
@@ -35,7 +35,7 @@ public class Main {
 
                if (str1.equals("E")) {
                    Archetype x1 = new Archetype();
-                   CommandsManagement.addArchetypeToList(x1, x0);
+                   CommandsManagement.addArchetypeToList(x1, list1);
 
                }
 
@@ -48,11 +48,11 @@ public class Main {
                    System.out.println("Fighter 2 : ");
                    Scanner sc4 = new Scanner(System.in);
                    int numeroDeuxiemeCombattant = sc4.nextInt();
-                   CommandsManagement.Start_A_Fight(x0, numeroPremiercombattant, numeroDeuxiemeCombattant);
+                   CommandsManagement.Start_A_Fight(list1, numeroPremiercombattant, numeroDeuxiemeCombattant);
                }
 
                if (str1.equals("F")) {
-                   CommandsManagement.showCreatedArchetypes(x0);
+                   CommandsManagement.showCreatedArchetypes(list1);
                }
 
                if (str1.equals("G")) {
@@ -76,7 +76,7 @@ public class Main {
                    int numberOfCreation = sc9.nextInt();
 
                    Archetype x2 = new Archetype(nameOfTheCharacter, damagesGivenToOpponent, lifePoints, initiative, numberOfCreation);
-                   CommandsManagement.addArchetypeToList(x2, x0);
+                   CommandsManagement.addArchetypeToList(x2, list1);
 
 
                }
